@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="098b9ea0fd0b443fb98e71a5cdf3df68" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Asistencia" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Aula" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Calificacion" Width="1.5" PointX="8.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.CategoriaCurso" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Certificado" Width="1.5" PointX="8.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Curso" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.DetallePago" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Estudiante" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Examan" Width="1.5" PointX="5.25" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Horario" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Inscripcion" Width="1.5" PointX="11.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Pago" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Profesor" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Sancion" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Usuario" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Asistencia" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Asistencia1" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Horario2" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Calificacion" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Calificacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Curso1" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Certificado" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Certificado1" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Curso" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Detalle_pago1" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Examen" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Horario1" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Inscripcion1" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Detalle_pago" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Inscripcion" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Pago" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Sancion" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Usuario_Estudiante" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK_Usuario_Profesor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
