@@ -145,6 +145,16 @@
           <Property Name="Duracion" Type="int" Nullable="false" />
           <Property Name="IdEstudiante" Type="int" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="Id" />
@@ -399,6 +409,7 @@
           <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sancion" EntityType="Self.Sancion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Asistencia" Association="Self.FK_Asistencia">
             <End Role="Estudiante" EntitySet="Estudiante" />
@@ -658,6 +669,16 @@
           <Property Name="IdEstudiante" Type="Int32" />
           <NavigationProperty Name="Estudiante" Relationship="Self.FK_Sancion" FromRole="Sancion" ToRole="Estudiante" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="Id" />
@@ -899,7 +920,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AcademiaSistemasEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AcademiaSistemasEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Asistencias" EntityType="Self.Asistencia" />
           <EntitySet Name="Aulas" EntityType="Self.Aula" />
           <EntitySet Name="Calificacions" EntityType="Self.Calificacion" />
@@ -914,6 +935,7 @@
           <EntitySet Name="Pagoes" EntityType="Self.Pago" />
           <EntitySet Name="Profesors" EntityType="Self.Profesor" />
           <EntitySet Name="Sancions" EntityType="Self.Sancion" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
           <AssociationSet Name="FK_Asistencia" Association="Self.FK_Asistencia">
             <End Role="Estudiante" EntitySet="Estudiantes" />
@@ -997,7 +1019,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AcademiaSistemasModelStoreContainer" CdmEntityContainer="AcademiaSistemasEntities">
+        <EntityContainerMapping StorageEntityContainer="AcademiaSistemasModelStoreContainer" CdmEntityContainer="AcademiaSistemasEntities1">
           <EntitySetMapping Name="Asistencias">
             <EntityTypeMapping TypeName="AcademiaSistemasModel.Asistencia">
               <MappingFragment StoreEntitySet="Asistencia">
@@ -1149,6 +1171,17 @@
                 <ScalarProperty Name="FechaSancion" ColumnName="FechaSancion" />
                 <ScalarProperty Name="Duracion" ColumnName="Duracion" />
                 <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

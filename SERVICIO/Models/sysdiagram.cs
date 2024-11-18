@@ -9,23 +9,15 @@
 
 namespace SERVICIO.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Horario
+    public partial class sysdiagram
     {
-        public int Id { get; set; }
-        public string DiaSemana { get; set; }
-        public System.TimeSpan HoraInicio { get; set; }
-        public System.TimeSpan HoraFin { get; set; }
-
-        public Nullable<int> IdCurso { get; set; }
- 
-        public Nullable<int> IdAula { get; set; }
-        [JsonIgnore]
-        public virtual Aula Aula { get; set; }
-        [JsonIgnore]
-        public virtual Curso Curso { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

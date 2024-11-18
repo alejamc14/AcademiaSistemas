@@ -156,11 +156,13 @@
     <Content Include="Paginas\Estilos\webfonts\fa-brands-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
+    <Content Include="Paginas\Horario.html" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\Pagina1.html" />
     <Content Include="Paginas\Pagina2.html" />
     <Content Include="Paginas\PaginaBase.html" />
     <Content Include="Paginas\Scripts\Comunes\CRUD.js" />
+    <Content Include="Paginas\Scripts\Horario.js" />
     <Content Include="Paginas\Scripts\Menu.js" />
     <Content Include="Paginas\Scripts\Pagina1.js" />
     <Content Include="Paginas\Scripts\Pagina2.js" />

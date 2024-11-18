@@ -13,10 +13,10 @@ namespace SERVICIO.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AcademiaSistemasEntities : DbContext
+    public partial class AcademiaSistemasEntities1 : DbContext
     {
-        public AcademiaSistemasEntities()
-            : base("name=AcademiaSistemasEntities")
+        public AcademiaSistemasEntities1()
+            : base("name=AcademiaSistemasEntities1")
         {
         }
     
@@ -39,6 +39,7 @@ namespace SERVICIO.Models
         public virtual DbSet<Pago> Pagoes { get; set; }
         public virtual DbSet<Profesor> Profesors { get; set; }
         public virtual DbSet<Sancion> Sancions { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
     }
 }

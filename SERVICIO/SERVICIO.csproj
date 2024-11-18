@@ -181,7 +181,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clases\clsHorario.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,6 +244,9 @@
     <Compile Include="Models\Sancion.cs">
       <DependentUpon>AcademiaSistemas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>AcademiaSistemas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>AcademiaSistemas.tt</DependentUpon>
     </Compile>
@@ -269,8 +274,8 @@
     <Content Include="Global.asax" />
     <Content Include="Models\AcademiaSistemas.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AcademiaSistemas.Context.cs</LastGenOutput>
       <DependentUpon>AcademiaSistemas.edmx</DependentUpon>
+      <LastGenOutput>AcademiaSistemas.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\AcademiaSistemas.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -283,13 +288,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\AcademiaSistemas.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AcademiaSistemas.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AcademiaSistemas.edmx.diagram">
-      <DependentUpon>AcademiaSistemas.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -309,6 +307,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\AcademiaSistemas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AcademiaSistemas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AcademiaSistemas.edmx.diagram">
+      <DependentUpon>AcademiaSistemas.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -332,7 +337,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Clases\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />
