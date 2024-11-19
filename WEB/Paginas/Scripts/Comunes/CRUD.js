@@ -3,6 +3,7 @@
     try {
         let result;
 
+
         // Confirmación para Eliminar (DELETE)
         if (Metodo === 'DELETE') {
             result = await Swal.fire({
