@@ -8,7 +8,6 @@ function LlenarTabla() {
     LlenarTablaXServicios("https://localhost:44387/api/Horario/LlenarTabla", "#tblHorario");
 }
 async function Ejecutar(Metodo, Funcion) {
-    console.log($("#txtDocumento").val());
     const horario = new Horario($("#txtIdHorario").val(), $("#txtFecha").val(), $("#txtHoraInicio").val(), $("#txtHoraFin").val(), $("#txtIdCurso").val(), $("#txtIdAula").val());
 
     let URL = "https://localhost:44387/api/Horario/" + Funcion;

@@ -1,22 +1,75 @@
 ﻿async function EjecutarComandoServicio(Metodo, URLServicio, Objeto) {
-    //Se crea un objeto de la clase cliente con los datos de la interfaz
+    // Se crea un objeto de la clase cliente con los datos de la interfaz
     try {
-        const Respuesta = await fetch(URLServicio,
-            {
-                method: Metodo,
-                mode: "cors",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(Objeto)
+        let result;
+
+        // Confirmación para Eliminar (DELETE)
+        if (Metodo === 'DELETE') {
+            result = await Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡Esta acción eliminará los datos permanentemente!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
             });
-        //Leer la respuesta
+
+            // Si el usuario confirma la eliminación
+            if (!result.isConfirmed) {
+                return; // Si el usuario cancela, no se realiza la eliminación
+            }
+        }
+
+        // Realizar la solicitud a la API (para Insertar, Actualizar, Eliminar)
+        const Respuesta = await fetch(URLServicio, {
+            method: Metodo,
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(Objeto)
+        });
+
+        // Leer la respuesta
         const Resultado = await Respuesta.json();
+
+        // Mostrar mensaje en el div de mensaje
         $("#dvMensaje").html(Resultado);
-    }
-    catch (error) {
-        //Se presenta el error en un div de Mensaje
+
+        // Mostrar SweetAlert según el tipo de acción
+        if (Metodo === 'POST') {
+            // Para insertar
+            await Swal.fire(
+                '¡Registro creado!',
+                'El registro se ha creado con éxito.',
+                'success'
+            );
+        } else if (Metodo === 'PUT') {
+            // Para actualizar
+            await Swal.fire(
+                '¡Actualizado!',
+                'Los datos fueron actualizados correctamente.',
+                'success'
+            );
+        } else if (Metodo === 'DELETE') {
+            // Para eliminar
+            await Swal.fire(
+                'Eliminado',
+                'Los datos fueron eliminados correctamente.',
+                'success'
+            );
+        }
+    } catch (error) {
+        // Manejo de errores
         $("#dvMensaje").html(error);
+        await Swal.fire(
+            'Error',
+            'Ocurrió un error en la operación.',
+            'error'
+        );
     }
 }
+
 
 async function ConsultarServicio(URLServicio) {
     //Para invocar el servicio, vamos a utilizar el método fetch de javascript, el cual me permite invocar una función en un servidor

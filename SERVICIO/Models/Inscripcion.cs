@@ -9,6 +9,7 @@
 
 namespace SERVICIO.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -18,8 +19,11 @@ namespace SERVICIO.Models
         public System.DateTime FechaInscripcion { get; set; }
         public Nullable<int> IdEstudiante { get; set; }
         public Nullable<int> IdCurso { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Curso Curso { get; set; }
+
+        [JsonIgnore]
         public virtual Estudiante Estudiante { get; set; }
     }
 }
