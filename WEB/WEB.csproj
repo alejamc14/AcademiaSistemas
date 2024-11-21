@@ -121,6 +121,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Paginas\Curso.html" />
     <Content Include="Paginas\Estilos\adminlte.css" />
     <Content Include="Paginas\Estilos\adminlte.min.css" />
     <Content Include="Paginas\Estilos\all.min.css" />
@@ -161,6 +162,7 @@
     <Content Include="Paginas\Pagina2.html" />
     <Content Include="Paginas\PaginaBase.html" />
     <Content Include="Paginas\Scripts\Comunes\CRUD.js" />
+    <Content Include="Paginas\Scripts\Curso.js" />
     <Content Include="Paginas\Scripts\Menu.js" />
     <Content Include="Paginas\Scripts\Pagina1.js" />
     <Content Include="Paginas\Scripts\Pagina2.js" />

@@ -9,10 +9,12 @@ using System.Web.Http.Cors;
 
 namespace SERVICIO.Controllers
 {
-    //[EnableCors(origins: "https://localhost:44365", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/CategoriaCursos")]
     public class CategoriaCursosController : ApiController
     {
+        [HttpGet]
+        [Route("LlenarCombo")]
         public IQueryable LlenarCombo()
         {
             clsCategoriaCurso categoriaCurso = new clsCategoriaCurso();

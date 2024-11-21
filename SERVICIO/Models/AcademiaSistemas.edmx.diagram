@@ -39,6 +39,7 @@
         <AssociationConnector Association="AcademiaSistemasModel.FK_Sancion" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaSistemasModel.FK_Usuario_Estudiante" ManuallyRouted="false" />
         <AssociationConnector Association="AcademiaSistemasModel.FK_Usuario_Profesor" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

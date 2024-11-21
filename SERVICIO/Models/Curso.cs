@@ -34,7 +34,7 @@ namespace SERVICIO.Models
         public int Precio { get; set; }
         public Nullable<int> IdProfesor { get; set; }
         public Nullable<int> IdCategoria { get; set; }
-
+    
         [JsonIgnore]
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

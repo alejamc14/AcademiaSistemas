@@ -9,6 +9,7 @@
 
 namespace SERVICIO.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -19,7 +20,9 @@ namespace SERVICIO.Models
         public int Duracion { get; set; }
         public decimal NotaMaxima { get; set; }
         public Nullable<int> IdCurso { get; set; }
-    
+        public string Descripcion { get; set; }
+
+        [JsonIgnore]
         public virtual Curso Curso { get; set; }
     }
 }

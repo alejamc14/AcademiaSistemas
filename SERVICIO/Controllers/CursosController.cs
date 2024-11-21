@@ -10,7 +10,7 @@ using System.Web.Http.Cors;
 
 namespace SERVICIO.Controllers
 {
-    //[EnableCors(origins: "https://localhost:44365", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/Cursos")]
     public class CursosController : ApiController
     {

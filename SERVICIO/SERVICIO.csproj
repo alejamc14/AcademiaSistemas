@@ -181,10 +181,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clases\clsAula.cs" />
     <Compile Include="Clases\clsCategoriaCurso.cs" />
+    <Compile Include="Clases\clsCertificado.cs" />
     <Compile Include="Clases\clsCurso.cs" />
+    <Compile Include="Clases\clsExamen.cs" />
+    <Compile Include="Controllers\AulasController.cs" />
     <Compile Include="Controllers\CategoriaCursosController.cs" />
+    <Compile Include="Controllers\CertificadosController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\ExamenesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

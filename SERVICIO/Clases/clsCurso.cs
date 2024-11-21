@@ -56,7 +56,7 @@ namespace SERVICIO.Clases
             try
             {
                 Curso _curso = Consultar(curso.Id);
-                if (curso != null)
+                if (_curso != null)
                 {
                     dbAcademia.Cursoes.Remove(_curso);
                     dbAcademia.SaveChanges();
@@ -91,6 +91,7 @@ namespace SERVICIO.Clases
                        Id_Curso = C.Id,
                        Curso = C.Nombre,
                        Descripcion = C.Descripcion,
+                       Hora = C.Hora,
                        Id_Profesor = C.IdProfesor,
                        Precio = C.Precio
                    };
