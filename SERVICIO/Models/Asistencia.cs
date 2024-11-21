@@ -21,7 +21,9 @@ namespace SERVICIO.Models
         public Nullable<int> IdCurso { get; set; }
 
         [JsonIgnore]
+        
         public virtual Estudiante Estudiante { get; set; }
+
         [JsonIgnore]
         public virtual Curso Curso { get; set; }
     }

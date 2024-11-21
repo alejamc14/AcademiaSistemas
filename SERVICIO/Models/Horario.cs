@@ -19,12 +19,12 @@ namespace SERVICIO.Models
         public string DiaSemana { get; set; }
         public System.TimeSpan HoraInicio { get; set; }
         public System.TimeSpan HoraFin { get; set; }
-
         public Nullable<int> IdCurso { get; set; }
- 
         public Nullable<int> IdAula { get; set; }
+
         [JsonIgnore]
         public virtual Aula Aula { get; set; }
+
         [JsonIgnore]
         public virtual Curso Curso { get; set; }
     }

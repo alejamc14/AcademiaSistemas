@@ -37,8 +37,10 @@ async function Consultar() {
 }
 function EditarHorario(Semana, Horainicio, Horafin) {
     $("#txtFecha").val(Semana);
-    $("#txtHoraInicio").val(Horainicio);
-    $("#txtHoraFin").val(Horafin);
+    let horaInicioFormateada = Horainicio.split(":").slice(0, 2).join(":");
+    let horaFinFormateada = Horafin.split(":").slice(0, 2).join(":")
+    $("#txtHoraInicio").val(horaInicioFormateada);
+    $("#txtHoraFin").val(horaFinFormateada);
 }
 class Horario {
     constructor(Id, DiaSemana, HoraInicio, HoraFin, IdCurso, IdAula) {

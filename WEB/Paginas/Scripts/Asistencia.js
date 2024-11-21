@@ -30,7 +30,7 @@ async function Consultar() {
     }
 
 }
-function Editar(FechaAsistencia) {
+function EditarAsistencia(FechaAsistencia) {
     $("#txtFecha").val(FechaAsistencia);
 }
 
