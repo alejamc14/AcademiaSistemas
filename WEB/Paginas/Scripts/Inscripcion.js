@@ -4,8 +4,12 @@
     $("#dvMenu").load("../Paginas/Menu.html")
 
 });
+
 function LlenarTabla() {
     LlenarTablaXServicios("https://localhost:44387/api/Inscripcion/LlenarTabla", "#tblInscripcion");
+}
+function EditarInscripcion(FechaInscripcion) {
+    $("#txtFecha").val(FechaInscripcion);
 }
 async function Ejecutar(Metodo, Funcion) {
     const inscripcion = new Inscripcion($("#txtIdInscripcion").val(), $("#txtFecha").val(), $("#txtIdEstudiante").val(), $("#txtIdCurso").val());
@@ -30,6 +34,7 @@ async function Consultar() {
     }
 
 }
+
 class Inscripcion {
     constructor(Id, FechaInscripcion, IdEstudiante, IdCurso) {
         this.Id = Id;

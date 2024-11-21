@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>INSCRIPCIONES</title>
+    <title>ASISTENCIA</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">INSCRIPCION</h3>
+                            <h3 class="card-title">ASISTENCIA</h3>
                         </div>
                         <form id="frmIncapacidades">
                             <div class="card-body">
@@ -36,19 +36,19 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtIdInscripcion">CÓDIGO</label>
+                                                    <label for="txtIdAsistencia">CÓDIGO</label>
                                                     <div class="input-group">
-                                                        <input type="search" class="form-control" id="txtIdInscripcion" placeholder="Codigo (id)">
+                                                        <input type="search" class="form-control" id="txtIdAsistencia" placeholder="Codigo (id)">
                                                         <button type="button" class="btn btn-primary" id="txtBuscar" onclick="Consultar()">
                                                             <i class="bi bi-search"></i>
-                                                        </button>
+                                                        </button> 
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtFecha">FECHA</label>
-                                                    <input type="date" class="form-control" id="txtFecha" placeholder="Fecha de inscripción">
+                                                    <input type="date" class="form-control" id="txtFecha" placeholder="Fecha de asistencia">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -87,12 +87,12 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <table id="tblInscripcion" class="table table-bordered table-striped" style="width:100%;">
+                                                <table id="tblAsistencia" class="table table-bordered table-striped" style="width:100%;">
                                                     <thead>
                                                         <tr>
                                                             <th>Editar</th>
-                                                            <th>Id Inscripción</th>
-                                                            <th>Fecha</th>
+                                                            <th>Id Asistencia</th>
+                                                            <th>Fecha de Asistencia</th>
                                                             <th>Id Estudiante</th>
                                                             <th>Id Curso</th>
                                                         </tr>
@@ -116,7 +116,7 @@
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../Scripts/jquery.dataTables.min.js"></script>
     <script src="../Scripts/dataTables.bootstrap4.min.js"></script>
-    <script src="Scripts/Inscripcion.js"></script>
+    <script src="Scripts/Asistencia.js"></script>
     <script src="Scripts/Comunes/CRUD.js"></script>
     <script src="Scripts/Menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

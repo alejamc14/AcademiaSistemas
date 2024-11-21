@@ -55,6 +55,7 @@ namespace SERVICIO.Clases
             return from I in academiaSistemasEntities1.Inscripcions
                    select new
                    {
+                       Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"EditarInscripcion('"+ I.FechaInscripcion +"')\"><i class=\"bi bi-pencil-square\"></i></button>",
                        Id = I.Id,
                        FechaInscripcion = I.FechaInscripcion,
                        IdEstudiante = I.IdEstudiante,

@@ -35,6 +35,11 @@ async function Consultar() {
     }
 
 }
+function EditarHorario(Semana, Horainicio, Horafin) {
+    $("#txtFecha").val(Semana);
+    $("#txtHoraInicio").val(Horainicio);
+    $("#txtHoraFin").val(Horafin);
+}
 class Horario {
     constructor(Id, DiaSemana, HoraInicio, HoraFin, IdCurso, IdAula) {
         this.Id = Id;
