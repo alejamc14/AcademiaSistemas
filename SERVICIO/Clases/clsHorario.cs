@@ -54,6 +54,10 @@ namespace SERVICIO.Clases
         public IQueryable LlenarTabla()
         {
             return from H in academiaSistemasEntities1.Horarios
+                   //join C in academiaSistemasEntities1.Set<Curso>()
+                   //on H.IdCurso equals C.Id
+                   //join AU in academiaSistemasEntities1.Set<Aula>()
+                   //on H.IdAula equals AU.Id
                    select new
                    {
                        Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"EditarHorario('" + H.DiaSemana +"' , '"+ H.HoraInicio +"', '"+ H.HoraFin +"')\"><i class=\"bi bi-pencil-square\"></i></button>",
