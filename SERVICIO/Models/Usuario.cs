@@ -9,6 +9,7 @@
 
 namespace SERVICIO.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -20,8 +21,9 @@ namespace SERVICIO.Models
         public string Salt { get; set; }
         public Nullable<int> IdEstudiante { get; set; }
         public Nullable<int> IdProfesor { get; set; }
-    
+        [JsonIgnore]
         public virtual Estudiante Estudiante { get; set; }
+        [JsonIgnore]
         public virtual Profesor Profesor { get; set; }
     }
 }
