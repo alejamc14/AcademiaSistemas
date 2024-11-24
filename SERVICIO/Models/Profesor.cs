@@ -29,7 +29,7 @@ namespace SERVICIO.Models
         public string Especialidad { get; set; }
         public string Telefono { get; set; }
         public string Correo { get; set; }
-
+    
         [JsonIgnore]
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

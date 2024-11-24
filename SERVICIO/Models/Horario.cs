@@ -21,7 +21,7 @@ namespace SERVICIO.Models
         public System.TimeSpan HoraFin { get; set; }
         public Nullable<int> IdCurso { get; set; }
         public Nullable<int> IdAula { get; set; }
-
+    
         [JsonIgnore]
         public virtual Aula Aula { get; set; }
 

@@ -13,18 +13,17 @@ namespace SERVICIO.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Calificacion
+    public partial class Usuario_Perfil
     {
         public int Id { get; set; }
-        public decimal Nota { get; set; }
-        public System.DateTime FechaCalificacion { get; set; }
-        public Nullable<int> IdEstudiante { get; set; }
-        public Nullable<int> IdCurso { get; set; }
-    
-        [JsonIgnore]
-        public virtual Estudiante Estudiante { get; set; }
+        public int IdUsuario { get; set; }
+        public int IdPerfil { get; set; }
+        public bool Activo { get; set; }
 
         [JsonIgnore]
-        public virtual Curso Curso { get; set; }
+        public virtual Perfil Perfil { get; set; }
+
+        [JsonIgnore]
+        public virtual Usuario Usuario { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace SERVICIO.Models
         public decimal NotaMaxima { get; set; }
         public Nullable<int> IdCurso { get; set; }
         public string Descripción { get; set; }
-
+    
         [JsonIgnore]
         public virtual Curso Curso { get; set; }
     }

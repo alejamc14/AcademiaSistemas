@@ -15,6 +15,12 @@ namespace SERVICIO.Models
     
     public partial class Usuario
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Usuario()
+        {
+            this.Usuario_Perfil = new HashSet<Usuario_Perfil>();
+        }
+    
         public int Id { get; set; }
         public string NombreUsuario { get; set; }
         public string Clave { get; set; }
@@ -25,5 +31,8 @@ namespace SERVICIO.Models
         public virtual Estudiante Estudiante { get; set; }
         [JsonIgnore]
         public virtual Profesor Profesor { get; set; }
+        [JsonIgnore]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Usuario_Perfil> Usuario_Perfil { get; set; }
     }
 }
