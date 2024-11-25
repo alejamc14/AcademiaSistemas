@@ -8,14 +8,14 @@ async function Ejecutar(Metodo, Funcion) {
         $("#txtTelefono").val(), $("#txtDireccion").val(), $("#txtCorreo").val());
 
     let URL = "https://localhost:44387/api/Estudiantes/" + Funcion;
-    EjecutarComandoServicio(Metodo, URL, estudiante);
+    EjecutarComandoServicioAuth(Metodo, URL, estudiante);
 }
 
 async function Consultar() {
     let Documento = $("#txtDocumento").val();
     let URL = "https://localhost:44387/api/Estudiantes/ConsultarXDocumento?Documento=" + Documento;
 
-    const estudiante = await ConsultarServicio(URL);
+    const estudiante = await ConsultarServicioAuth(URL);
 
     if (estudiante != null) {
         $("#txtId").val(estudiante.Id);
@@ -32,7 +32,7 @@ async function Consultar() {
 
 }
 async function LlenarTabla() {
-    LlenarTablaXServicios("https://localhost:44387/api/Estudiantes/LlenarTabla", "#tblEstudiantes");
+    LlenarTablaXServiciosAuth("https://localhost:44387/api/Estudiantes/LlenarTabla", "#tblEstudiantes");
 }
 function EditarEstudiante(Documento, Nombre, Apellido, FechaNacimiento, Telefono, Direccion, Correo) {
     $("#txtDocumento").val(Documento);

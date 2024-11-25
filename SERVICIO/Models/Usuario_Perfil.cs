@@ -19,7 +19,7 @@ namespace SERVICIO.Models
         public int IdUsuario { get; set; }
         public int IdPerfil { get; set; }
         public bool Activo { get; set; }
-
+    
         [JsonIgnore]
         public virtual Perfil Perfil { get; set; }
 

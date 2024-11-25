@@ -5,19 +5,19 @@
 
 });
 function LlenarTabla() {
-    LlenarTablaXServicios("https://localhost:44387/api/Asistencia/LlenarTabla", "#tblAsistencia");
+    LlenarTablaXServiciosAuth("https://localhost:44387/api/Asistencia/LlenarTabla", "#tblAsistencia");
 }
 async function Ejecutar(Metodo, Funcion) {
     const asistencia = new Asistencia($("#txtIdAsistencia").val(), $("#txtFecha").val(), $("#txtIdEstudiante").val(), $("#txtIdCurso").val());
 
     let URL = "https://localhost:44387/api/Asistencia/" + Funcion;
-    EjecutarComandoServicio(Metodo, URL, asistencia);
+    EjecutarComandoServicioAuth(Metodo, URL, asistencia);
 }
 async function Consultar() {
     let Id = $("#txtIdAsistencia").val();
     let URL = "https://localhost:44387/api/Asistencia/Consultar?id=" + Id;
 
-    const asistencia = await ConsultarServicio(URL);
+    const asistencia = await ConsultarServicioAuth(URL);
 
     if (asistencia != null) {
 

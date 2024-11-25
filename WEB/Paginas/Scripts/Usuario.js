@@ -1,15 +1,17 @@
 ﻿jQuery(function () {
- /*   LlenarTabla();*/
+    LlenarComboXServiciosAuth("https://localhost:44387/api/Perfil/LlenarCombo", "#cboPerfil");
+    LlenarTabla();
 });
-//async function LlenarTabla() {
-//    LlenarTablaXServicios("https://localhost:44387/api/Usuario/ListarUsuarios", "#tblUsuarios");
-//}
-function Editar(idUsuario, DocumentoEmpleado, Empleado, Cargo, Usuario, Perfil) {
+async function LlenarTabla() {
+    LlenarTablaXServiciosAuth("https://localhost:44387/api/Usuario/ListarUsuarios", "#tblUsuarios");
+}
+function EditarUsuario(Id , Documento, Nombre, Usuario, Perfil, UsuarioPerfil) {
+    $("#txtIdUsuario").val(Id);
     $("#txtDocumento").val(Documento);
-    $("#txtNombre").val(Empleado);
-    $("#txtCargo").val(Cargo);
+    $("#txtNombre").val(Nombre);
     $("#txtUsuario").val(Usuario);
     $("#cboPerfil").val(Perfil);
+    $("#txtIdUsuarioPerfil").val(UsuarioPerfil);
 }
 async function Ejecutar(Metodo, Funcion) {
     let Clave = $("#txtClave").val();
@@ -33,7 +35,7 @@ async function Ejecutar(Metodo, Funcion) {
     }
 
     // Consultar el ID correspondiente
-    const resultado = await ConsultarServicio(URL2);
+    const resultado = await ConsultarServicioAuth(URL2);
     if (resultado) {
         if (tipoConsulta === "estudiante") {
             IdEstudiante = resultado.Id;
@@ -48,10 +50,12 @@ async function Ejecutar(Metodo, Funcion) {
         });
         return;
     }
-    const usuario = new Usuario(0, $("#txtUsuario").val(), Clave, IdEstudiante, IdProfesor);
-    let URL = "https://localhost:44387/api/Usuario/" + Funcion;
-    await EjecutarComandoServicio(Metodo, URL, usuario);
-    /*LlenarTabla();*/
+    let idUsuario = Metodo == 'PUT' ? $("#txtIdUsuario").val() : 0
+    let idUsuarioPerfil = Metodo == 'PUT' ? $("#txtIdUsuarioPerfil").val() : 0;
+    const usuario = new Usuario(idUsuario, $("#txtUsuario").val(), Clave, IdEstudiante, IdProfesor);
+    let URL = "https://localhost:44387/api/Usuario/" + Funcion + "?IdPerfil=" + idPerfil + "&IdUsuarioPerfil=" + idUsuarioPerfil;
+    await EjecutarComandoServicioAuth(Metodo, URL, usuario);
+    LlenarTabla();
 }
 async function Consultar() {
     let tipoConsulta = $("#tipoConsulta").val(); // Obtienes el valor del tipo de consulta (Estudiante o Profesor)
@@ -64,9 +68,9 @@ async function Consultar() {
 }
 async function ConsultarEstudiante() {
     let Documento = $("#txtDocumento").val();
-    URL = "https://localhost:44387/api/Estudiantes/ConsultarEstudiante?Documento=" + Documento;
+    let URL = "https://localhost:44387/api/Estudiantes/ConsultarEstudiante?Documento=" + Documento;
     //Invoco el servicio genérico
-    const estudiante = await ConsultarServicio(URL);
+    const estudiante = await ConsultarServicioAuth(URL);
     if (estudiante != null && estudiante.length > 0) {
         $("#txtNombre").val(estudiante[0].Estudiante);
         $("#dvMensaje").html("");
@@ -82,9 +86,9 @@ async function ConsultarEstudiante() {
 }
 async function ConsultarProfesor() {
     let Documento = $("#txtDocumento").val();
-    URL = "https://localhost:44387/api/Profesor/ConsultarProfesor?Documento=" + Documento;
+    let URL = "https://localhost:44387/api/Profesor/ConsultarProfesor?Documento=" + Documento;
     //Invoco el servicio genérico
-    const profesor = await ConsultarServicio(URL);
+    const profesor = await ConsultarServicioAuth(URL);
     if (profesor != null && profesor.length > 0) {
         $("#txtNombre").val(profesor[0].Profesor);
         $("#dvMensaje").html("");
@@ -98,6 +102,46 @@ async function ConsultarProfesor() {
         });
     }
 }
+async function Activar(IdUsuarioPerfil, Activo) {
+    // Convertir el valor de Activo a booleano
+    Activo = (Activo === "true");
+
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: `¿Quieres ${Activo ? 'activar' : 'desactivar'} este usuario?`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, continuar',
+        cancelButtonText: 'No, cancelar',
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            let URL = "https://localhost:44387/api/Usuario/Activar?IdUsuarioPerfil=" + IdUsuarioPerfil + "&Activo=" + Activo;
+            try {
+                await EjecutarComandoServicioAuth('PUT', URL, null);
+                Swal.fire({
+                    title: '¡Hecho!',
+                    text: `El usuario ha sido ${Activo ? 'activado' : 'desactivado'} exitosamente.`,
+                    icon: 'success',
+                });
+                LlenarTabla();
+            } catch (error) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'No se pudo procesar la solicitud. Intenta nuevamente.',
+                    icon: 'error',
+                });
+            }
+        } else {
+            Swal.fire({
+                title: 'Cancelado',
+                text: 'La operación fue cancelada.',
+                icon: 'info',
+            });
+        }
+    });
+}
+
+
 class Usuario {
     constructor(Id, NombreUsuario, Clave, IdEstudiante, IdProfesor) {
         this.Id = Id;

@@ -5,19 +5,19 @@
     
 });
 function LlenarTabla() {
-    LlenarTablaXServicios("https://localhost:44387/api/Horario/LlenarTabla", "#tblHorario");
+    LlenarTablaXServiciosAuth("https://localhost:44387/api/Horario/LlenarTabla", "#tblHorario");
 }
 async function Ejecutar(Metodo, Funcion) {
     const horario = new Horario($("#txtIdHorario").val(), $("#txtFecha").val(), $("#txtHoraInicio").val(), $("#txtHoraFin").val(), $("#txtIdCurso").val(), $("#txtIdAula").val());
 
     let URL = "https://localhost:44387/api/Horario/" + Funcion;
-    EjecutarComandoServicio(Metodo, URL, horario);
+    EjecutarComandoServicioAuth(Metodo, URL, horario);
 }
 async function Consultar() {
     let Id = $("#txtIdHorario").val();
     let URL = "https://localhost:44387/api/Horario/Consultar?id=" + Id;
 
-    const horario = await ConsultarServicio(URL);
+    const horario = await ConsultarServicioAuth(URL);
 
     
     if (horario != null) {

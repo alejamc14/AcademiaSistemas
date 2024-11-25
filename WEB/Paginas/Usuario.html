@@ -61,6 +61,8 @@
                                                 <div class="form-group">
                                                     <label for="txtUsuario">USUARIO</label>
                                                     <input type="text" class="form-control" id="txtUsuario" placeholder="USUARIO">
+                                                    <input type="hidden" class="form-control" id="txtIdUsuario" placeholder="ID USUARIO">
+                                                    <input type="hidden" class="form-control" id="txtIdUsuarioPerfil" placeholder="ID USUARIO PERFIL">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -85,21 +87,13 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-6">
                                                 <br />
                                                 <button type="button" id="btnInsertar" class="btn-block btn-lg btn-primary" onclick="Ejecutar('POST', 'Insertar')">INSERTAR</button>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-6">
                                                 <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary">ACTUALIZAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnDesactivar" class="btn-block btn-lg btn-primary">DESACTIVAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnActivar" class="btn-block btn-lg btn-primary">ACTIVAR</button>
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary" onclick="Ejecutar('PUT', 'Actualizar')">ACTUALIZAR</button>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -114,8 +108,7 @@
                                                         <tr>
                                                             <th>Editar</th>
                                                             <th>Documento</th>
-                                                            <th>Empleado</th>
-                                                            <th>Cargo</th>
+                                                            <th>Nombre</th>
                                                             <th>Usuario</th>
                                                             <th>Perfil</th>
                                                             <th>Activo</th>

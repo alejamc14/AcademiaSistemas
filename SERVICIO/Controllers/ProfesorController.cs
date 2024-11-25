@@ -12,6 +12,7 @@ namespace SERVICIO.Controllers
 {
     [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/Profesor")]
+    [Authorize]
     public class ProfesorController : ApiController
     {
         [HttpPost]

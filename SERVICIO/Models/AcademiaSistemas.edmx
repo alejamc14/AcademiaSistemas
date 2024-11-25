@@ -130,6 +130,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PaginaNavegar" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Profesor">
           <Key>
@@ -1083,6 +1084,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Usuario_Perfil" Relationship="AcademiaSistemasModel.FK_Usuario_Perfil_Perfil" FromRole="Perfil" ToRole="Usuario_Perfil" />
+          <Property Name="PaginaNavegar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Usuario_Perfil">
           <Key>
@@ -1306,6 +1308,7 @@
           <EntitySetMapping Name="Perfils">
             <EntityTypeMapping TypeName="AcademiaSistemasModel.Perfil">
               <MappingFragment StoreEntitySet="Perfil">
+                <ScalarProperty Name="PaginaNavegar" ColumnName="PaginaNavegar" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

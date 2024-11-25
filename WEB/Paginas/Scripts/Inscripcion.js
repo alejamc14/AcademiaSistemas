@@ -6,7 +6,7 @@
 });
 
 function LlenarTabla() {
-    LlenarTablaXServicios("https://localhost:44387/api/Inscripcion/LlenarTabla", "#tblInscripcion");
+    LlenarTablaXServiciosAuth("https://localhost:44387/api/Inscripcion/LlenarTabla", "#tblInscripcion");
 }
 function EditarInscripcion(FechaInscripcion) {
     $("#txtFecha").val(FechaInscripcion);
@@ -15,13 +15,13 @@ async function Ejecutar(Metodo, Funcion) {
     const inscripcion = new Inscripcion($("#txtIdInscripcion").val(), $("#txtFecha").val(), $("#txtIdEstudiante").val(), $("#txtIdCurso").val());
 
     let URL = "https://localhost:44387/api/Inscripcion/" + Funcion;
-    EjecutarComandoServicio(Metodo, URL, inscripcion);
+    EjecutarComandoServicioAuth(Metodo, URL, inscripcion);
 }
 async function Consultar() {
     let Id = $("#txtIdInscripcion").val();
     let URL = "https://localhost:44387/api/Inscripcion/Consultar?id=" + Id;
 
-    const inscripcion = await ConsultarServicio(URL);
+    const inscripcion = await ConsultarServicioAuth(URL);
 
     if (inscripcion != null) {
 
