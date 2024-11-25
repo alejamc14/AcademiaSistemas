@@ -124,6 +124,14 @@
           <Property Name="FechaPago" Type="date" Nullable="false" />
           <Property Name="IdEstudiante" Type="int" />
         </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PaginaNavegar" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Profesor">
           <Key>
             <PropertyRef Name="Id" />
@@ -166,6 +174,15 @@
           <Property Name="Salt" Type="nvarchar" MaxLength="2000" />
           <Property Name="IdEstudiante" Type="int" />
           <Property Name="IdProfesor" Type="int" />
+        </EntityType>
+        <EntityType Name="Usuario_Perfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdPerfil" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_Asistencia">
           <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
@@ -383,6 +400,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Usuario_Perfil_Perfil">
+          <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+          <End Role="Usuario_Perfil" Type="Self.Usuario_Perfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario_Perfil">
+              <PropertyRef Name="IdPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Perfil_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Usuario_Perfil" Type="Self.Usuario_Perfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario_Perfil">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usuario_Profesor">
           <End Role="Profesor" Type="Self.Profesor" Multiplicity="0..1" />
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -408,10 +449,12 @@
           <EntitySet Name="Horario" EntityType="Self.Horario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Inscripcion" EntityType="Self.Inscripcion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sancion" EntityType="Self.Sancion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario_Perfil" EntityType="Self.Usuario_Perfil" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Asistencia" Association="Self.FK_Asistencia">
             <End Role="Estudiante" EntitySet="Estudiante" />
             <End Role="Asistencia" EntitySet="Asistencia" />
@@ -483,6 +526,14 @@
           <AssociationSet Name="FK_Usuario_Estudiante" Association="Self.FK_Usuario_Estudiante">
             <End Role="Estudiante" EntitySet="Estudiante" />
             <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Perfil_Perfil" Association="Self.FK_Usuario_Perfil_Perfil">
+            <End Role="Perfil" EntitySet="Perfil" />
+            <End Role="Usuario_Perfil" EntitySet="Usuario_Perfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Perfil_Usuario" Association="Self.FK_Usuario_Perfil_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Usuario_Perfil" EntitySet="Usuario_Perfil" />
           </AssociationSet>
           <AssociationSet Name="FK_Usuario_Profesor" Association="Self.FK_Usuario_Profesor">
             <End Role="Profesor" EntitySet="Profesor" />
@@ -682,6 +733,7 @@
           <Property Name="IdProfesor" Type="Int32" />
           <NavigationProperty Name="Estudiante" Relationship="Self.FK_Usuario_Estudiante" FromRole="Usuario" ToRole="Estudiante" />
           <NavigationProperty Name="Profesor" Relationship="Self.FK_Usuario_Profesor" FromRole="Usuario" ToRole="Profesor" />
+          <NavigationProperty Name="Usuario_Perfil" Relationship="AcademiaSistemasModel.FK_Usuario_Perfil_Usuario" FromRole="Usuario" ToRole="Usuario_Perfil" />
         </EntityType>
         <Association Name="FK_Asistencia">
           <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
@@ -1004,6 +1056,16 @@
             <End Role="Usuario" EntitySet="Usuarios" />
           </AssociationSet>
           <EntitySet Name="sysdiagrams" EntityType="AcademiaSistemasModel.sysdiagram" />
+          <EntitySet Name="Perfils" EntityType="AcademiaSistemasModel.Perfil" />
+          <EntitySet Name="Usuario_Perfil" EntityType="AcademiaSistemasModel.Usuario_Perfil" />
+          <AssociationSet Name="FK_Usuario_Perfil_Perfil" Association="AcademiaSistemasModel.FK_Usuario_Perfil_Perfil">
+            <End Role="Perfil" EntitySet="Perfils" />
+            <End Role="Usuario_Perfil" EntitySet="Usuario_Perfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Perfil_Usuario" Association="AcademiaSistemasModel.FK_Usuario_Perfil_Usuario">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Usuario_Perfil" EntitySet="Usuario_Perfil" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1015,6 +1077,50 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaginaNavegar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario_Perfil" Relationship="AcademiaSistemasModel.FK_Usuario_Perfil_Perfil" FromRole="Perfil" ToRole="Usuario_Perfil" />
+        </EntityType>
+        <EntityType Name="Usuario_Perfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdPerfil" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Perfil" Relationship="AcademiaSistemasModel.FK_Usuario_Perfil_Perfil" FromRole="Usuario_Perfil" ToRole="Perfil" />
+          <NavigationProperty Name="Usuario" Relationship="AcademiaSistemasModel.FK_Usuario_Perfil_Usuario" FromRole="Usuario_Perfil" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Usuario_Perfil_Perfil">
+          <End Type="AcademiaSistemasModel.Perfil" Role="Perfil" Multiplicity="1" />
+          <End Type="AcademiaSistemasModel.Usuario_Perfil" Role="Usuario_Perfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario_Perfil">
+              <PropertyRef Name="IdPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Perfil_Usuario">
+          <End Type="AcademiaSistemasModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="AcademiaSistemasModel.Usuario_Perfil" Role="Usuario_Perfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario_Perfil">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1196,6 +1302,25 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfils">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Perfil">
+              <MappingFragment StoreEntitySet="Perfil">
+                <ScalarProperty Name="PaginaNavegar" ColumnName="PaginaNavegar" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario_Perfil">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Usuario_Perfil">
+              <MappingFragment StoreEntitySet="Usuario_Perfil">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

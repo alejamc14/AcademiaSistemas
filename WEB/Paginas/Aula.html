@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CURSO</title>
+    <title>AULA</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
@@ -24,61 +24,38 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">ADMINISTRACIÓN DE CURSOS</h3>
+                            <h3 class="card-title">ADMINISTRACIÓN DE AULA</h3>
                         </div>
                         <form id="frmIncapacidades">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
                                     <div class="card-header">
-                                        <h3 class="card-title">DATOS DEL CURSO</h3>
+                                        <h3 class="card-title">DATOS DEL AULA</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtId">CÓDIGO</label>
-                                                    <input type="number" class="form-control" id="txtId" placeholder="Código del curso">
+                                                    <input type="number" class="form-control" id="txtId" placeholder="Código del aula">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="cboCategoriaCurso">CATEGORÍA CURSO</label>
-                                                    <select id="cboCategoriaCurso" class="form-control">
-                                                        <option value="0">SELECCIONAR</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="txtNombre">NOMBRE</label>
-                                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del curso">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="txtHora">DURACIÓN DEL CURSO</label>
-                                                    <input type="number" class="form-control" id="txtHora" placeholder="Duración en horas">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="form-group">
-                                                    <label for="txtDescripcion">DESCRIPCIÓN</label>
-                                                    <input type="text" class="form-control" id="txtDescripcion" placeholder="Descripción del curso">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="txtIdProfesor">ID PROFESOR</label>
-                                                    <input type="text" class="form-control" id="txtIdProfesor" placeholder="Id Profesor">
+                                                    <label for="txtNom">NOMBRE</label>
+                                                    <input type="text" class="form-control" id="txtNom" placeholder="Nombre del aula">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtPrecio">PRECIO</label>
-                                                    <input type="number" class="form-control" id="txtPrecio" placeholder="Precio del Curso">
+                                                    <label for="txtCap">CAPACIDAD</label>
+                                                    <input type="number" class="form-control" id="txtCap" placeholder="Capacidad del aula">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtDescrip">DESCRIPCIÓN</label>
+                                                    <input type="text" class="form-control" id="txtDescrip" placeholder="Descripción del aula">
                                                 </div>
                                             </div>
                                         </div>
@@ -108,18 +85,13 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <table id="tblCursos" class="table table-bordered table-striped" style="width:100%;">
+                                                <table id="tblAula" class="table table-bordered table-striped" style="width:100%;">
                                                     <thead>
                                                         <tr>
-                                                            <th>Cod. Categoria</th>
-                                                            <th>Categoria Curso</th>
-                                                            <th>Código curso</th>
-                                                            <th>Curso</th>
+                                                            <th>Código</th>
+                                                            <th>Nombre</th>
+                                                            <th>Capacidad</th>
                                                             <th>Descripción</th>
-                                                            <th>Hora</th>
-                                                            <th>Id Profesor</th>
-                                                            <th>Precio</th>
-
                                                         </tr>
                                                     </thead>
                                                 </table>
@@ -145,7 +117,7 @@
     <!--Archivos comunes-->
 
     <script src="Scripts/Comunes/CRUD.js"></script>
-    <script src="Scripts/Curso.js"></script>
+    <script src="Scripts/Aula.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

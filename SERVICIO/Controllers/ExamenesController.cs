@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace SERVICIO.Controllers
 {
+    [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/Examenes")]
     public class ExamenesController : ApiController
     {
@@ -41,7 +43,7 @@ namespace SERVICIO.Controllers
 
         [HttpGet]
         [Route("ConsultarXId")]
-        public Examan ConsultarXDocumento(int Id)
+        public Examan ConsultarXId(int Id)
         {
             clsExamen _examen = new clsExamen();
             return _examen.Consultar(Id);

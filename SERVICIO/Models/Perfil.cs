@@ -9,24 +9,22 @@
 
 namespace SERVICIO.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class CategoriaCurso
+    public partial class Perfil
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CategoriaCurso()
+        public Perfil()
         {
-            this.Cursoes = new HashSet<Curso>();
+            this.Usuario_Perfil = new HashSet<Usuario_Perfil>();
         }
     
-        public int IdCategoria { get; set; }
+        public int Id { get; set; }
         public string Nombre { get; set; }
-
-        [JsonIgnore]
+        public string PaginaNavegar { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Curso> Cursoes { get; set; }
+        public virtual ICollection<Usuario_Perfil> Usuario_Perfil { get; set; }
     }
 }

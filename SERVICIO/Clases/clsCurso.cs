@@ -13,6 +13,18 @@ namespace SERVICIO.Clases
 
         public Curso curso { get; set; }
 
+        public IQueryable LlenarCombo()
+        {
+
+            return from C in dbAcademia.Set<Curso>()
+                   select new
+                   {
+                       Codigo = C.Id,
+                       Nombre = C.Nombre
+                   };
+
+
+        }
         public string Insertar()
         {
             try
@@ -97,5 +109,7 @@ namespace SERVICIO.Clases
                    };
 
         }
+
+       
     }
 }

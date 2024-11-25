@@ -1,22 +1,4 @@
-﻿//async function EjecutarComandoServicio(Metodo, URLServicio, Objeto) {
-//    //Se crea un objeto de la clase cliente con los datos de la interfaz
-//    try {
-//        const Respuesta = await fetch(URLServicio,
-//            {
-//                method: Metodo,
-//                mode: "cors",
-//                headers: { "Content-Type": "application/json" },
-//                body: JSON.stringify(Objeto)
-//            });
-//        //Leer la respuesta
-//        const Resultado = await Respuesta.json();
-//        $("#dvMensaje").html(Resultado);
-//    }
-//    catch (error) {
-//        //Se presenta el error en un div de Mensaje
-//        $("#dvMensaje").html(error);
-//    }
-//}
+﻿
 async function EjecutarComandoServicio(Metodo, URLServicio, Objeto) {
     // Se crea un objeto de la clase cliente con los datos de la interfaz
     try {

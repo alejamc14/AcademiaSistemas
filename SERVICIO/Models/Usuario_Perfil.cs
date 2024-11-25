@@ -9,20 +9,17 @@
 
 namespace SERVICIO.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Examan
+    public partial class Usuario_Perfil
     {
         public int Id { get; set; }
-        public System.DateTime FechaExamen { get; set; }
-        public int Duracion { get; set; }
-        public decimal NotaMaxima { get; set; }
-        public Nullable<int> IdCurso { get; set; }
-        public string Descripcion { get; set; }
+        public int IdUsuario { get; set; }
+        public int IdPerfil { get; set; }
+        public bool Activo { get; set; }
     
-        [JsonIgnore]
-        public virtual Curso Curso { get; set; }
+        public virtual Perfil Perfil { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

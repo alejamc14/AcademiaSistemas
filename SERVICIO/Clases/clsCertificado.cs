@@ -88,8 +88,8 @@ namespace SERVICIO.Clases
                    orderby C.NombreCertificado
                    select new
                    {
-                       Id_Aula = C.Id,
-                       Nombre = C.NombreCertificado,
+                       Id = C.Id,
+                       Nombre_Certificado = C.NombreCertificado,
                        Fecha = C.FechaCertificacion,
                        Estudiante = C.IdEstudiante,
                        Curso= C.IdCurso,

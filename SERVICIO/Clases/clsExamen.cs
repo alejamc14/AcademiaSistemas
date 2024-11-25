@@ -84,14 +84,17 @@ namespace SERVICIO.Clases
         public IQueryable LlenarTabla()
         {
             return from E in dbAcademia.Set<Examan>()
+                   join C in dbAcademia.Set<Curso>()
+                   on E.IdCurso equals C.Id
                    orderby E.FechaExamen
                    select new
                    {
                        Id = E.Id,
+                       CodCurso = C.Id,
+                       Curso = C.Nombre,
+                       Descripción = E.Descripcion,
                        Fecha = E.FechaExamen,
                        Duración = E.Duracion,
-                       Curso = E.IdCurso,
-                       Descripción= E.Descripcion,
                        Nota_Maxima = E.NotaMaxima,
                    };
         }

@@ -20,7 +20,7 @@ namespace SERVICIO.Models
         public System.DateTime FechaCertificacion { get; set; }
         public Nullable<int> IdEstudiante { get; set; }
         public Nullable<int> IdCurso { get; set; }
-
+    
         [JsonIgnore]
         public virtual Estudiante Estudiante { get; set; }
         [JsonIgnore]

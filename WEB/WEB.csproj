@@ -121,6 +121,8 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Paginas\Aula.html" />
+    <Content Include="Paginas\Certificado.html" />
     <Content Include="Paginas\Curso.html" />
     <Content Include="Paginas\Estilos\adminlte.css" />
     <Content Include="Paginas\Estilos\adminlte.min.css" />
@@ -157,12 +159,16 @@
     <Content Include="Paginas\Estilos\webfonts\fa-brands-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
+    <Content Include="Paginas\Examen.html" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\Pagina1.html" />
     <Content Include="Paginas\Pagina2.html" />
     <Content Include="Paginas\PaginaBase.html" />
+    <Content Include="Paginas\Scripts\Aula.js" />
+    <Content Include="Paginas\Scripts\Certificado.js" />
     <Content Include="Paginas\Scripts\Comunes\CRUD.js" />
     <Content Include="Paginas\Scripts\Curso.js" />
+    <Content Include="Paginas\Scripts\Examen.js" />
     <Content Include="Paginas\Scripts\Menu.js" />
     <Content Include="Paginas\Scripts\Pagina1.js" />
     <Content Include="Paginas\Scripts\Pagina2.js" />

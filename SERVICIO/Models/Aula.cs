@@ -25,7 +25,7 @@ namespace SERVICIO.Models
         public string Nombre { get; set; }
         public int Capacidad { get; set; }
         public string Descripcion { get; set; }
-
+    
         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horario> Horarios { get; set; }

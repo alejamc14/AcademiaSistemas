@@ -15,6 +15,14 @@ namespace SERVICIO.Controllers
     public class CursosController : ApiController
     {
         [HttpGet]
+        [Route("LlenarCombo")]
+        public IQueryable LlenarCombo()
+        {
+            clsCurso curso = new clsCurso();
+            return curso.LlenarCombo();
+        }
+
+        [HttpGet]
         [Route("ConsultarXCodigo")]
         public Curso ConsultarXCodigo(int Codigo)
         {
