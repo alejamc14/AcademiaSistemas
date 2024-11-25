@@ -30,7 +30,7 @@ async function Consultar() {
     if (certificado != null) {
         $("#dvMensaje").html("");
         $("#txtNombre").val(certificado.NombreCertificado);
-        $("#txtFecha").val(certificado.FechaCertificacion);
+        $("#txtFecha").val(certificado.FechaCertificacion.split('T')[0]);
         $("#cboEstudiante").val(certificado.IdEstudiante);
         $("#cboCurso").val(certificado.IdCurso);
 
