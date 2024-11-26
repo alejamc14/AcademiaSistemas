@@ -57,6 +57,13 @@ namespace SERVICIO.Controllers
             clsEstudiante _estudiante = new clsEstudiante();
             return _estudiante.ConsultarEstudiante(Documento);
         }
+        [HttpGet]
+        [Route("ConsultarUsuario")]
+        public IQueryable ConsultarUsuario(string Usuario)
+        {
+            clsEstudiante _estudiante = new clsEstudiante();
+            return _estudiante.ConsultarUsuario(Usuario);
+        }
 
         [HttpGet]
         [Route("LlenarTabla")]

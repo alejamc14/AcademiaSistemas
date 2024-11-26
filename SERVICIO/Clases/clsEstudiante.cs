@@ -85,6 +85,18 @@ namespace SERVICIO.Clases
                        Estudiante = E.Nombre + " " + E.Apellido
                    };
         }
+        public IQueryable ConsultarUsuario(string Usuario)
+        {
+            return from E in academiaSistemasEntities1.Set<Estudiante>()
+                   join U in academiaSistemasEntities1.Set<Usuario>()
+                   on E.Id equals U.IdEstudiante
+                   where U.NombreUsuario == Usuario
+                   select new
+                   {
+                       IdEstudiante = E.Id,
+                       Estudiante = E.Nombre + " " + E.Apellido
+                   };
+        }
         public IQueryable LlenarTabla()
         {
             return from E in academiaSistemasEntities1.Set<Estudiante>()

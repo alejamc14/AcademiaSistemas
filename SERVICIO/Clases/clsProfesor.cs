@@ -101,5 +101,14 @@ namespace SERVICIO.Clases
                        Correo = P.Correo
                    };
         }
+        public IQueryable LlenarProfesor()
+        {
+            return from P in academiaSistemasEntities1.Set<Profesor>()
+                   select new
+                   {
+                       Codigo = P.Id,
+                       Nombre = P.Nombre + " " + P.Apellido,
+                   };
+        }
     }
 }

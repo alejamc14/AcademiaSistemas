@@ -13,7 +13,8 @@ namespace SERVICIO.Controllers
     [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/Horario")]
     [Authorize]
-    public class HorarioController : ApiController
+   
+    public class HorariosController : ApiController
     {
         [HttpPost]
         [Route("Insertar")]

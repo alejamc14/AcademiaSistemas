@@ -13,7 +13,7 @@ namespace SERVICIO.Controllers
     [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/Profesor")]
     [Authorize]
-    public class ProfesorController : ApiController
+    public class ProfesoresController : ApiController
     {
         [HttpPost]
         [Route("Insertar")]
@@ -64,6 +64,13 @@ namespace SERVICIO.Controllers
         {
             clsProfesor _profesor = new clsProfesor();
             return _profesor.LlenarTabla();
+        }
+        [HttpGet]
+        [Route("LlenarProfesor")]
+        public IQueryable LlenarProfesor()
+        {
+            clsProfesor _profesor = new clsProfesor();
+            return _profesor.LlenarProfesor();
         }
     }
 }

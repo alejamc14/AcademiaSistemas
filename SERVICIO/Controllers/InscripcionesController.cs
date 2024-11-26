@@ -13,7 +13,7 @@ namespace SERVICIO.Controllers
     [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/Inscripcion")]
     [Authorize]
-    public class InscripcionController : ApiController
+    public class InscripcionesController : ApiController
     {
         [HttpPost]
         [Route("Insertar")]

@@ -48,6 +48,7 @@ async function Ingresar() {
             let expires = ";expires=" + d.toUTCString();
             document.cookie = "token=" + Respuesta[0].Token + expires + ";path=/";
             document.cookie = "Perfil=" + Respuesta[0].Perfil;
+            document.cookie = "Usuario=" + Respuesta[0].Usuario;
 
             // Mostrar mensaje de éxito
             await Swal.fire({

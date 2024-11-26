@@ -12,7 +12,7 @@ namespace SERVICIO.Controllers
     [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/Perfil")]
     [Authorize]
-    public class PerfilController : ApiController
+    public class PerfilesController : ApiController
     {
         [HttpGet]
         [Route("LlenarCombo")]
