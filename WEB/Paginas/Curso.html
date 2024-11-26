@@ -13,6 +13,7 @@
     <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <!-- SweetAlert2 -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -34,10 +35,15 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtId">CÓDIGO</label>
-                                                    <input type="number" class="form-control" id="txtId" placeholder="Código del curso">
+                                                    <div class="input-group">
+                                                        <input type="search" class="form-control" id="txtId" placeholder="Código curso">
+                                                        <button type="button" class="btn btn-primary" id="txtBuscar" onclick="Consultar()">
+                                                            <i class="bi bi-search"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -55,7 +61,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="txtHora">DURACIÓN DEL CURSO</label>
                                                     <input type="number" class="form-control" id="txtHora" placeholder="Duración en horas">

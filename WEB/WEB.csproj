@@ -121,6 +121,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\lupa.jpg" />
     <Content Include="Paginas\Aula.html" />
     <Content Include="Paginas\Certificado.html" />
     <Content Include="Paginas\Curso.html" />
