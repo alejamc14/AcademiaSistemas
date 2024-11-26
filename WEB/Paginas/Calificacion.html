@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CALIFICACIONES</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+    <!--Estilos para las tablas-->
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <!-- SweetAlert2 -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12" id="dvMenu">
+                </div>
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">ADMINISTRACIÓN DE CALIFICACIONES</h3>
+                        </div>
+                        <form id="frmIncapacidades">
+                            <div class="card-body">
+                                <div class="card card-gray-dark">
+                                    <div class="card-header">
+                                        <h3 class="card-title">INFORMACIÓN BÁSICA</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <label for="txtID">ID</label>
+                                                    <input type="text" class="form-control" id="txtID" placeholder="ID">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <img src="../Imagenes/busqueda.png" style="width: 80px; height: auto; cursor: pointer;" onclick="BuscarEstudiante()" alt="Imagen de búsqueda" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtIdEstudiante">ESTUDIANTE</label>
+                                                    <select class="form-control" id="txtIdEstudiante">
+                                                        <option value="">Seleccione un estudiante</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtIdCurso">CURSO</label>
+                                                    <select class="form-control" id="txtIdCurso">
+                                                        <option value="">Seleccione un curso</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtNota">NOTA</label>
+                                                    <input type="text" class="form-control" id="txtNota" placeholder="Nota">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtFechaCalificacion">FECHA DE CALIFICACIÓN</label>
+                                                    <input type="date" class="form-control" id="txtFechaCalificacion" placeholder="Fecha de Calificación">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-danger">
+                                    <div class="card-header">
+                                        <h3 class="card-title">PROCESO</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row justify-content-center text-center">
+                                            <div class="card-body">
+                                                <div class="row justify-content-center text-center">
+                                                    <div class="col-md-3">
+                                                        <br />
+                                                        <button type="button" id="btnInsertar" class="btn-block btn-lg btn-warning" onclick="Ejecutar('POST', 'Insertar')">INSERTAR</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <br />
+                                                        <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary" onclick="Ejecutar('PUT', 'Actualizar')">ACTUALIZAR</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <br />
+                                                        <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="Ejecutar('DELETE', 'Eliminar')">ELIMINAR</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table id="tblCalificaciones" class="table table-bordered table-striped" style="width:100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Editar</th>
+                                                            <th>ID</th>
+                                                            <th>ID Estudiante</th>
+                                                            <th>Nombre Estudiante</th>
+                                                            <th>Apellido Estudiante</th>
+                                                            <th>Nombre Curso</th>
+                                                            <th>Nota</th>
+                                                            <th>Fecha Calificación</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div id="dvMensaje" class=""></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <!--Tables-->
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.min.js"></script>
+    <!--Archivos comunes-->
+    <script src="Scripts/Menu.js"></script>
+    <script src="Scripts/Comunes/CRUD.js"></script>
+    <script src="Scripts/Calificacion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="AcademiaSistemasModel.Curso" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AcademiaSistemasModel.DetallePago" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AcademiaSistemasModel.Estudiante" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcademiaSistemasModel.Examan" Width="1.5" PointX="5.25" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Examan" Width="1.5" PointX="4.25" PointY="19.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AcademiaSistemasModel.Horario" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AcademiaSistemasModel.Inscripcion" Width="1.5" PointX="11.25" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AcademiaSistemasModel.Pago" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />

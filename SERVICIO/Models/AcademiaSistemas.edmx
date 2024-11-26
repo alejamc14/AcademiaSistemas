@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AcademiaSistemasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AcademiaSistemasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asistencia">
           <Key>
             <PropertyRef Name="Id" />
@@ -93,6 +93,7 @@
           <Property Name="Duracion" Type="int" Nullable="false" />
           <Property Name="NotaMaxima" Type="decimal" Precision="2" Scale="1" Nullable="false" />
           <Property Name="IdCurso" Type="int" />
+          <Property Name="Descripción" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Horario">
           <Key>
@@ -477,8 +478,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AcademiaSistemasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -597,6 +597,7 @@
           <Property Name="NotaMaxima" Type="Decimal" Precision="2" Scale="1" Nullable="false" />
           <Property Name="IdCurso" Type="Int32" />
           <NavigationProperty Name="Curso" Relationship="Self.FK_Examen" FromRole="Examen" ToRole="Curso" />
+          <Property Name="Descripción" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Horario">
           <Key>
@@ -1088,6 +1089,7 @@
           <EntitySetMapping Name="Examen">
             <EntityTypeMapping TypeName="AcademiaSistemasModel.Examan">
               <MappingFragment StoreEntitySet="Examen">
+                <ScalarProperty Name="Descripción" ColumnName="Descripción" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FechaExamen" ColumnName="FechaExamen" />
                 <ScalarProperty Name="Duracion" ColumnName="Duracion" />

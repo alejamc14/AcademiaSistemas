@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SERVICIO.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace SERVICIO
 {
@@ -10,7 +12,9 @@ namespace SERVICIO
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            config.EnableCors();
+            var cors = new EnableCorsAttribute("http://localhost:64868", "*", "*");
+            config.EnableCors(cors);
+            config.MessageHandlers.Add(new PreflightRequestHandler());
             // Web API routes
             config.MapHttpAttributeRoutes();
 
