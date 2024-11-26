@@ -12,15 +12,14 @@ namespace SERVICIO.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DetallePago
+    public partial class Usuario_Perfil
     {
         public int Id { get; set; }
-        public Nullable<int> IdPago { get; set; }
-        public Nullable<int> IdCurso { get; set; }
-        public int ValorUnitario { get; set; }
-        public int Cantidad { get; set; }
+        public int IdUsuario { get; set; }
+        public int IdPerfil { get; set; }
+        public bool Activo { get; set; }
     
-        public virtual Curso Curso { get; set; }
-        public virtual Pago Pago { get; set; }
+        public virtual Perfil Perfil { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

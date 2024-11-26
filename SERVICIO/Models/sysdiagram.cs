@@ -12,15 +12,12 @@ namespace SERVICIO.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DetallePago
+    public partial class sysdiagram
     {
-        public int Id { get; set; }
-        public Nullable<int> IdPago { get; set; }
-        public Nullable<int> IdCurso { get; set; }
-        public int ValorUnitario { get; set; }
-        public int Cantidad { get; set; }
-    
-        public virtual Curso Curso { get; set; }
-        public virtual Pago Pago { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

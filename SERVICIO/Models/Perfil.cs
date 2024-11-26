@@ -12,23 +12,18 @@ namespace SERVICIO.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuario
+    public partial class Perfil
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuario()
+        public Perfil()
         {
             this.Usuario_Perfil = new HashSet<Usuario_Perfil>();
         }
     
         public int Id { get; set; }
-        public string NombreUsuario { get; set; }
-        public string Clave { get; set; }
-        public string Salt { get; set; }
-        public Nullable<int> IdEstudiante { get; set; }
-        public Nullable<int> IdProfesor { get; set; }
+        public string Nombre { get; set; }
+        public string PaginaNavegar { get; set; }
     
-        public virtual Estudiante Estudiante { get; set; }
-        public virtual Profesor Profesor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario_Perfil> Usuario_Perfil { get; set; }
     }

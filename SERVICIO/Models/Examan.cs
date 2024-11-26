@@ -19,6 +19,7 @@ namespace SERVICIO.Models
         public int Duracion { get; set; }
         public decimal NotaMaxima { get; set; }
         public Nullable<int> IdCurso { get; set; }
+        public string Descripcion { get; set; }
     
         public virtual Curso Curso { get; set; }
     }

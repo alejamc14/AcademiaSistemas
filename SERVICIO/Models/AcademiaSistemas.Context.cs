@@ -40,5 +40,8 @@ namespace SERVICIO.Models
         public virtual DbSet<Profesor> Profesors { get; set; }
         public virtual DbSet<Sancion> Sancions { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Perfil> Perfils { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Usuario_Perfil> Usuario_Perfil { get; set; }
     }
 }
