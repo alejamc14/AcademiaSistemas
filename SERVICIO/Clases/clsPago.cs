@@ -58,37 +58,23 @@ namespace SERVICIO.Clases
             }
             
         }
-        public IQueryable ListarCursos(int NumeroPago)
+        public IQueryable ListarCursos(int NumeroFactura)
         {
             return from D in academiaSistemasEntities1.Set<DetallePago>()
                    join C in academiaSistemasEntities1.Set<Curso>()
                    on D.IdCurso equals C.Id
                    join CC in academiaSistemasEntities1.Set<CategoriaCurso>()
                    on C.IdCategoria equals CC.IdCategoria
-                   where D.IdPago == NumeroPago
+                   where D.IdPago == NumeroFactura
                    select new
                    {
-                       Eliminar = "<button type=\"button\" class=\"btn btn-danger\" id=\"txtBuscar\" onclick=\"Eliminar('"+ D.Id +"', '"+ D.Cantidad +"', '"+ D.ValorUnitario +"')\">\r\n<i class=\"bi bi-trash\"></i>\r\n </button>",
+                       Eliminar = "",
                        Categoria_Curso = CC.Nombre,
                        Curso = C.Nombre,
                        Cantidad = D.Cantidad,
                        ValorUnitario = D.ValorUnitario,
                        SubTotal = D.Cantidad * D.ValorUnitario
                    };
-        }
-        public string Eliminar(int Codigo)
-        {
-            try
-            {
-                detallePago = academiaSistemasEntities1.DetallePagoes.FirstOrDefault(d => d.Id == Codigo);
-                academiaSistemasEntities1.DetallePagoes.Remove(detallePago);
-                academiaSistemasEntities1.SaveChanges();
-                return "Se elimino";
-            }
-            catch (Exception ex) 
-            { 
-                return ex.Message;
-            }
         }
 
     }
