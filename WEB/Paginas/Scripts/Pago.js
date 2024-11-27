@@ -1,19 +1,45 @@
-﻿jQuery(function () {
-    $("#txtTotalCompra").val(0);
+﻿var TotalPago;
+jQuery(function () {
+    TotalPago = 0;
+    $("#txtTotalCompra").val(TotalPago);
     $("#txtNumeroPago").val(0);
     $("#txtFechaCompra").val(FechaHoy());
     ConsultarUsuario();
     ListarCategoriaCurso();
 });
 async function GrabarCurso() {
+    CalcularTotal($("#txtCantidad").val(), $("#txtValorUnitario").val(), "Suma");
     const detallePago = [new DetallePago(0, $("#txtNumeroPago").val(), $("#txtCodigoCurso").val(), $("#txtValorUnitario").val(), $("#txtCantidad").val())];
     const pago = new Pago($("#txtNumeroPago").val(), $("#txtTotalCompra").val(), $("#txtFechaCompra").val(), $("#txtidEstudiante").val(), detallePago);
-    let NumeroFactura = await EjecutarComandoServicioRptaAuth("POST", "https://localhost:44387/api/Pago/GrabarPago", pago);
-    $("#txtNumeroPago").val(NumeroFactura);
-    LlenarDetallePago(NumeroFactura);
+    let NumeroPago = await EjecutarComandoServicioRptaAuth("POST", "https://localhost:44387/api/Pago/GrabarPago", pago);
+    $("#txtNumeroPago").val(NumeroPago);
+    LlenarDetallePago(NumeroPago);
+    $("#btnGrabarPago").prop("disabled", false);
 }
-async function LlenarDetallePago(NumeroFactura) {
-    LlenarTablaXServiciosAuth("https://localhost:44387/api/Pago/ListarCursos?NumeroFactura=" + NumeroFactura, "#tblPago")
+function CalcularTotal(Cantidad, ValorUnitario, Operacion) {
+    TotalPago = Operacion == "Suma" ? TotalPago + (Cantidad * ValorUnitario) : TotalPago - (Cantidad * ValorUnitario);
+    $("#txtTotalCompra").val(FormatoMiles(TotalPago));
+}
+function TerminarCurso() {
+    TotalPago = 0;
+    $("#txtTotalCompra").val(TotalPago);
+    $("#txtNumeroPago").val(0);
+    $("#txtFechaCompra").val(FechaHoy());
+    $("#txtidEstudiante").val("");
+    $("#txtNombreEstudiante").val("");
+    var table = new DataTable('#tblPago'); 
+    table.clear().draw();
+
+}
+async function Eliminar(idPago,cantidad, valorunidad) {
+    const detallePago = [new DetallePago(0, $("#txtNumeroPago").val(), $("#txtCodigoCurso").val(), $("#txtValorUnitario").val(), $("#txtCantidad").val())];
+    const pago = new Pago($("#txtNumeroPago").val(), $("#txtTotalCompra").val(), $("#txtFechaCompra").val(), $("#txtidEstudiante").val(), detallePago);
+    await EjecutarComandoServicioAuth('DELETE', "https://localhost:44387/api/Pago/Eliminar?NumeroDetalle=" + idPago, pago);
+    LlenarDetallePago($("#txtNumeroPago").val());
+    CalcularTotal(cantidad,valorunidad, "Resta");
+}
+async function LlenarDetallePago(NumeroPago) {
+    LlenarTablaXServiciosAuth("https://localhost:44387/api/Pago/ListarCursos?NumeroPago=" + NumeroPago, "#tblPago")
 }
 class Pago {
     constructor(Id, Total, FechaPago, IdEstudiante, DetallePagoes) {

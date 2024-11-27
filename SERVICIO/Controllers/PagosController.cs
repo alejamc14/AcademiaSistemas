@@ -25,10 +25,17 @@ namespace SERVICIO.Controllers
         }
         [HttpGet]
         [Route("ListarCursos")]
-        public IQueryable ListarCursos(int NumeroFactura)
+        public IQueryable ListarCursos(int NumeroPago)
         {
             clsPago _pago = new clsPago();
-            return _pago.ListarCursos(NumeroFactura);
+            return _pago.ListarCursos(NumeroPago);
+        }
+        [HttpDelete]
+        [Route("Eliminar")]
+        public string Eliminar(int NumeroDetalle)
+        {
+            clsPago _pago = new clsPago();
+            return _pago.Eliminar(NumeroDetalle);
         }
 
     }
