@@ -59,6 +59,8 @@ namespace SERVICIO.Clases
                    on I.IdCurso equals C.Id 
                    join CC in academiaSistemasEntities1.Set<CategoriaCurso>()
                    on C.IdCategoria equals CC.IdCategoria
+                   join D in academiaSistemasEntities1.Set<DetallePago>()
+                   on C.Id equals D.Id
                    select new
                    {
                        Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"EditarInscripcion('"+ I.Id +"', '"+ I.FechaInscripcion +"', '"+ E.Id +"', '"+ E.Nombre + " " + E.Apellido +"', '"+ CC.IdCategoria +"', '"+ C.Id +"')\"><i class=\"bi bi-pencil-square\"></i></button>",
@@ -66,7 +68,7 @@ namespace SERVICIO.Clases
                        FechaInscripcion = I.FechaInscripcion,
                        NombreEstudiante = E.Nombre + " " + E.Apellido,
                        NombreCurso = C.Nombre,
-                       Pagar = ""
+                       Pagar = "<button type=\"button\" class=\"btn btn-primary\" onclick=\"PagoModal()\"><i class=\"bi bi-currency-dollar\"></i> Pagar</button>"
                    };
         }
     }
