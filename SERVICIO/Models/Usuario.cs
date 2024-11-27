@@ -31,7 +31,7 @@ namespace SERVICIO.Models
         public virtual Estudiante Estudiante { get; set; }
         [JsonIgnore]
         public virtual Profesor Profesor { get; set; }
-        
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario_Perfil> Usuario_Perfil { get; set; }
     }
