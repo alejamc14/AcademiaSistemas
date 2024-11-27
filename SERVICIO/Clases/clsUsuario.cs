@@ -8,7 +8,7 @@ namespace SERVICIO.Clases
 {
     public class clsUsuario
     {
-        AcademiaSistemasEntities1 academiaSistemasEntities1 = new AcademiaSistemasEntities1();
+        AcademiaSistemasEntities academiaSistemasEntities1 = new AcademiaSistemasEntities();
 
         public Usuario usuario { get; set; }
         public string Insertar(int IdPerfil)

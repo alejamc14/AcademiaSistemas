@@ -12,7 +12,7 @@ namespace SERVICIO.Clases
         {
             loginRespuesta = new LoginRespuesta();
         }
-        private AcademiaSistemasEntities1 academiaSistemasEntities1 = new AcademiaSistemasEntities1();
+        private AcademiaSistemasEntities academiaSistemasEntities1 = new AcademiaSistemasEntities();
         public Login login { get; set; }
         public LoginRespuesta loginRespuesta { get; set; }
         private bool ValidarUsuario()

@@ -10,7 +10,7 @@ namespace SERVICIO.Clases
 {
     public class clsHorario
     {
-        AcademiaSistemasEntities1 academiaSistemasEntities1 = new AcademiaSistemasEntities1();
+        AcademiaSistemasEntities academiaSistemasEntities1 = new AcademiaSistemasEntities();
 
         public Horario horario { get; set; }
 

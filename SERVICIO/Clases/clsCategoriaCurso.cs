@@ -8,7 +8,7 @@ namespace SERVICIO.Clases
 {
     public class clsCategoriaCurso
     {
-        private AcademiaSistemasEntities1 academiaSistemasEntities1 = new AcademiaSistemasEntities1();
+        private AcademiaSistemasEntities academiaSistemasEntities1 = new AcademiaSistemasEntities();
         public CategoriaCurso categoriaCurso { get; set; }
 
         public IQueryable LlenarCombo()

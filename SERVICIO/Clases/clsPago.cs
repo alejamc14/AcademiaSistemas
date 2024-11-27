@@ -9,7 +9,7 @@ namespace SERVICIO.Clases
 {
     public class clsPago
     {
-        private AcademiaSistemasEntities1 academiaSistemasEntities1 = new AcademiaSistemasEntities1();
+        private AcademiaSistemasEntities academiaSistemasEntities1 = new AcademiaSistemasEntities();
 
         public Pago pago { get; set; }
         public DetallePago detallePago { get; set; }

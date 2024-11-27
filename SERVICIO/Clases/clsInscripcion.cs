@@ -10,7 +10,7 @@ namespace SERVICIO.Clases
 {
     public class clsInscripcion
     {
-        AcademiaSistemasEntities1 academiaSistemasEntities1 = new AcademiaSistemasEntities1();
+        AcademiaSistemasEntities academiaSistemasEntities1 = new AcademiaSistemasEntities();
         public Inscripcion inscripcion { get; set; }
 
         public string Insertar()

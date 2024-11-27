@@ -8,7 +8,7 @@ namespace SERVICIO.Clases
 {
     public class clsPerfil
     {
-        AcademiaSistemasEntities1 academiaSistemasEntities1 = new AcademiaSistemasEntities1();
+        AcademiaSistemasEntities academiaSistemasEntities1 = new AcademiaSistemasEntities();
         public Perfil perfil { get; set; }
         public IQueryable LlenarCombo()
         {
