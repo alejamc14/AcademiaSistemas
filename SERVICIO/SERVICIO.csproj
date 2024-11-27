@@ -236,13 +236,28 @@
     <Compile Include="Models\Pago.cs">
       <DependentUpon>AcademiaSistemas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Perfil.cs">
+      <DependentUpon>AcademiaSistemas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Profesor.cs">
       <DependentUpon>AcademiaSistemas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sancion.cs">
       <DependentUpon>AcademiaSistemas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>AcademiaSistemas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>AcademiaSistemas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>AcademiaSistemas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Usuario.cs">
+      <DependentUpon>AcademiaSistemas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario_Perfil.cs">
       <DependentUpon>AcademiaSistemas.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -269,8 +284,8 @@
     <Content Include="Global.asax" />
     <Content Include="Models\AcademiaSistemas.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AcademiaSistemas.Context.cs</LastGenOutput>
       <DependentUpon>AcademiaSistemas.edmx</DependentUpon>
+      <LastGenOutput>AcademiaSistemas.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\AcademiaSistemas.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -283,13 +298,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\AcademiaSistemas.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AcademiaSistemas.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AcademiaSistemas.edmx.diagram">
-      <DependentUpon>AcademiaSistemas.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -309,6 +317,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\AcademiaSistemas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AcademiaSistemas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AcademiaSistemas.edmx.diagram">
+      <DependentUpon>AcademiaSistemas.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
