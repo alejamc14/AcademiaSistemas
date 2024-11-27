@@ -64,8 +64,8 @@ namespace SERVICIO.Clases
                        Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"EditarInscripcion('"+ I.Id +"', '"+ I.FechaInscripcion +"', '"+ E.Id +"', '"+ E.Nombre + " " + E.Apellido +"', '"+ CC.IdCategoria +"', '"+ C.Id +"')\"><i class=\"bi bi-pencil-square\"></i></button>",
                        Id = I.Id,
                        FechaInscripcion = I.FechaInscripcion,
-                       IdEstudiante = E.Id,
-                       IdCurso = C.Id,
+                       NombreEstudiante = E.Nombre + " " + E.Apellido,
+                       NombreCurso = C.Nombre,
                        Pagar = ""
                    };
         }

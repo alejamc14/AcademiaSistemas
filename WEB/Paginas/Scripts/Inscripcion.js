@@ -16,14 +16,18 @@ async function EditarInscripcion(id, FechaInscripcion, idEstudiante, NombreEstud
     $("#cboCategoriaCurso").val(CategoriaCurso);
     await ListarCursoInscripcion(CategoriaCurso);
     const cursoId = Curso;
-    let cursoSeleccionado = null;
 
-    $("#cboCurso option").each(function () {
-        if ($(this).val().startsWith(cursoId + "|")) {
-            cursoSeleccionado = $(this).val();
-            return false;
-        }
-    });
+    const cursoSeleccionado = $("#cboCurso option")
+        .filter(function () {
+            return $(this).val().startsWith(cursoId + "|");
+        })
+        .val();
+    if (cursoSeleccionado) {
+        $("#cboCurso").val(cursoSeleccionado);
+        console.log("Curso asignado correctamente:", cursoSeleccionado);
+    } else {
+        console.error("No se encontró una opción coincidente para el curso:", cursoId);
+    }
 }
 async function Ejecutar(Metodo, Funcion) {
     let idInscripcion = 0; // Valor predeterminado
