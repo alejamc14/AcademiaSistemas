@@ -247,6 +247,7 @@
     <Compile Include="Models\Inscripcion.cs">
       <DependentUpon>AcademiaSistemas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\modelLogin.cs" />
     <Compile Include="Models\Pago.cs">
       <DependentUpon>AcademiaSistemas.tt</DependentUpon>
     </Compile>
