@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PROFESORES</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+    <!--Estilos para las tablas-->
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <!-- SweetAlert2 -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12" id="dvMenu">
+                </div>
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">ADMINISTRACIÓN DE PROFESORES</h3>
+                        </div>
+                        <form id="frmIncapacidades">
+                            <div class="card-body">
+                                <div class="card card-gray-dark">
+                                    <div class="card-header">
+                                        <h3 class="card-title">INFORMACIÓN BÁSICA</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtDocumento">DOCUMENTO</label>
+                                                    <div class="input-group">
+                                                        <input type="search" class="form-control" id="txtDocumento" placeholder="Documento del profesor">
+                                                        <button type="button" class="btn btn-primary" id="txtBuscar" onclick="Consultar()">
+                                                            <i class="bi bi-search"></i>
+                                                        </button>
+                                                        <input type="hidden" class="form-control" id="txtId" placeholder="ID" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtNombre">NOMBRE</label>
+                                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del Estudiante">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtApellido">APELLIDO</label>
+                                                    <input type="text" class="form-control" id="txtApellido" placeholder="Apellido del Estudiante">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtTelefono">TELÉFONO</label>
+                                                    <input type="text" class="form-control" id="txtTelefono" placeholder="Teléfono del estudiante">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtCorreo">CORREO</label>
+                                                    <input type="email" class="form-control" id="txtCorreo" placeholder="Correo del Estudiante">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtEspecialidad">ESPECIALIDAD</label>
+                                                    <input type="text" class="form-control" id="txtEspecialidad" placeholder="Especialidad">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-danger">
+                                    <div class="card-header">
+                                        <h3 class="card-title">PROCESO</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <br />
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-primary" onclick="Ejecutar('POST', 'Insertar')">INSERTAR</button>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <br />
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary" onclick="Ejecutar('PUT', 'Actualizar')">ACTUALIZAR</button>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <br />
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-primary" onclick="Ejecutar('DELETE', 'Eliminar')">ELIMINAR</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table id="tblProfesor" class="table table-bordered table-striped" style="width:100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Editar</th>
+                                                            <th>Id</th>
+                                                            <th>Documento</th>
+                                                            <th>Nombre</th>
+                                                            <th>Apellido</th>
+                                                            <th>Especialidad</th>
+                                                            <th>Teléfono</th>
+                                                            <th>Correo</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div id="dvMensaje" class=""></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <!--Tables-->
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.min.js"></script>
+    <!--Archivos comunes-->
+    <script src="Scripts/Profesor.js"></script>
+    <script src="Scripts/Menu.js"></script>
+    <script src="Scripts/Comunes/CRUD.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

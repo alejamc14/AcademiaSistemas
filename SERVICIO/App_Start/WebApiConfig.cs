@@ -11,6 +11,7 @@ namespace SERVICIO
         {
             // Web API configuration and services
             config.EnableCors();
+            config.MessageHandlers.Add(new Clases.TokenValidationHandler());
             // Web API routes
             config.MapHttpAttributeRoutes();
 
