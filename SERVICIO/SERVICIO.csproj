@@ -236,7 +236,18 @@
     <Compile Include="Clases\clsUsuario.cs" />
     <Compile Include="Clases\TokenGenerator.cs" />
     <Compile Include="Clases\TokenValidationHandler.cs" />
+    <Compile Include="Controllers\AsistenciasController.cs" />
+    <Compile Include="Controllers\CategoriaCursosController.cs" />
+    <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\EstudiantesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HorariosController.cs" />
+    <Compile Include="Controllers\InscripcionesController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PagosController.cs" />
+    <Compile Include="Controllers\PerfilesController.cs" />
+    <Compile Include="Controllers\ProfesoresController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
