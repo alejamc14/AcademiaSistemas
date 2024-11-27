@@ -34,33 +34,48 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="txtIdInscripcion">CÓDIGO</label>
+                                                    <label for="txtDocumentoEstudiante">DOCUMENTO</label>
                                                     <div class="input-group">
-                                                        <input type="search" class="form-control" id="txtIdInscripcion" placeholder="Codigo (id)">
-                                                        <button type="button" class="btn btn-primary" id="txtBuscar" onclick="Consultar()">
+                                                        <input type="search" class="form-control" id="txtDocumentoEstudiante" placeholder="Codigo (id)">
+                                                        <button type="button" class="btn btn-primary" id="txtBuscar" onclick="ConsultarEstudiante()">
                                                             <i class="bi bi-search"></i>
                                                         </button>
+                                                        <input type="text" class="form-control" id="txtIdInscripcion" placeholder="Codigo (id)" hidden/>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtNombreEstudiante">ESTUDIANTE</label>
+                                                    <input type="text" class="form-control" id="txtNombreEstudiante" placeholder="Estudiante">
+                                                    <input type="text" class="form-control" id="txtIdEstudiante"   placeholder="Id Estudiante" hidden/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="txtFecha">FECHA</label>
                                                     <input type="date" class="form-control" id="txtFecha" placeholder="Fecha de inscripción">
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="txtIdEstudiante">ID ESTUDIANTE</label>
-                                                    <input type="number" class="form-control" id="txtIdEstudiante" placeholder="Id Estudiante">
+                                                    <label for="cboCategoriaCurso">Categoria Curso</label>
+                                                    <select id="cboCategoriaCurso" class="form-control select2" style="width: 100%;" onchange="ListarCursoInscripcion(0)">
+                                                        <option selected="selected" value="0">Seleccione un una Categoria de Curso</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="txtIdCurso">ID CURSO</label>
-                                                    <input type="number" class="form-control" id="txtIdCurso" placeholder="Id Curso">
+                                                    <label for="cboCurso">Curso</label>
+                                                    <select id="cboCurso" class="form-control select2" style="width: 100%;">
+                                                        <option selected="selected" value="0">Seleccione el Curso</option>
+                                                    </select>
+                                                    <input type="text" class="form-control" id="txtIdCurso" placeholder="Id Curso" hidden/>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,6 +110,7 @@
                                                             <th>Fecha</th>
                                                             <th>Id Estudiante</th>
                                                             <th>Id Curso</th>
+                                                            <th>Pagar</th>
                                                         </tr>
                                                     </thead>
                                                 </table>
