@@ -6,13 +6,13 @@
 });
 
 function LlenarTabla() {
-    LlenarTablaXServicios("https://localhost:44387/api/Aulas/LlenarTabla", "#tblAula");
+    LlenarTablaXServiciosAuth("https://localhost:44387/api/Aulas/LlenarTabla", "#tblAula");
 }
 
 async function EjecutarComando(Metodo, Funcion) {
     const aula = new Aula($("#txtId").val(), $("#txtNom").val(), $("#txtCap").val(), $("#txtDescrip").val());
     let URL = "https://localhost:44387/api/Aulas/" + Funcion;
-    await EjecutarComandoServicio(Metodo, URL, aula);
+    await EjecutarComandoServicioAuth(Metodo, URL, aula);
     LlenarTabla();
 
 
@@ -22,7 +22,7 @@ async function Consultar() {
     let id = $("#txtId").val();
     URL = "https://localhost:44387/api/Aulas/ConsultarXId?id=" + id;
     //Invoco el servicio genérico
-    const aula = await ConsultarServicio(URL);
+    const aula = await ConsultarServicioAuth(URL);
     if (aula != null) {
         $("#dvMensaje").html("");
         $("#txtNom").val(aula.Nombre);

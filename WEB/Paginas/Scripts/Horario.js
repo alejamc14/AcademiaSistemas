@@ -1,5 +1,7 @@
 ﻿jQuery(function () {
     LlenarTabla();
+    ListarCurso();
+    ListarAula();
 
     $("#dvMenu").load("../Paginas/Menu.html")
     
@@ -7,11 +9,18 @@
 function LlenarTabla() {
     LlenarTablaXServiciosAuth("https://localhost:44387/api/Horario/LlenarTabla", "#tblHorario");
 }
+async function ListarCurso() {
+    LlenarComboXServiciosAuth("https://localhost:44387/api/Cursos/listarCursos", "#cboCurso");
+}
+async function ListarAula() {
+    LlenarComboXServiciosAuth("https://localhost:44387/api/Aulas/listarAulas", "#cboAula");
+}
 async function Ejecutar(Metodo, Funcion) {
-    const horario = new Horario($("#txtIdHorario").val(), $("#txtFecha").val(), $("#txtHoraInicio").val(), $("#txtHoraFin").val(), $("#txtIdCurso").val(), $("#txtIdAula").val());
+    const horario = new Horario($("#txtIdHorario").val(), $("#txtFecha").val(), $("#txtHoraInicio").val(), $("#txtHoraFin").val(), $("#cboCurso").val(), $("#cboAula").val());
 
     let URL = "https://localhost:44387/api/Horario/" + Funcion;
     EjecutarComandoServicioAuth(Metodo, URL, horario);
+    LlenarTabla();
 }
 async function Consultar() {
     let Id = $("#txtIdHorario").val();
@@ -26,8 +35,8 @@ async function Consultar() {
         $("#txtFecha").val(diaSeleccionado);
         $("#txtHoraInicio").val(horario.HoraInicio);
         $("#txtHoraFin").val(horario.HoraFin);
-        $("#txtIdCurso").val(horario.IdCurso);
-        $("#txtIdAula").val(horario.IdAula);
+        $("#cboCurso").val(horario.IdCurso);
+        $("#cboAula").val(horario.IdAula);
 
     }
     else {
@@ -35,12 +44,17 @@ async function Consultar() {
     }
 
 }
-function EditarHorario(Semana, Horainicio, Horafin) {
+function EditarHorario(id, Semana, Horainicio, Horafin, Curso, Aula) {
+    $("#txtIdHorario").val(id);
     $("#txtFecha").val(Semana);
     let horaInicioFormateada = Horainicio.split(":").slice(0, 2).join(":");
     let horaFinFormateada = Horafin.split(":").slice(0, 2).join(":")
     $("#txtHoraInicio").val(horaInicioFormateada);
     $("#txtHoraFin").val(horaFinFormateada);
+    $("#cboCurso").val(Curso);
+    $("#cboAula").val(Aula);
+
+
 }
 class Horario {
     constructor(Id, DiaSemana, HoraInicio, HoraFin, IdCurso, IdAula) {

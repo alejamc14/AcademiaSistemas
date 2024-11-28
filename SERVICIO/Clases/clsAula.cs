@@ -91,7 +91,18 @@ namespace SERVICIO.Clases
                    };
 
         }
+        public IQueryable listarAulas()
+        {
+            return from A in dbAcademia.Set<Aula>()
+                   orderby A.Nombre
+                   select new
+                   {
+                       Codigo = A.Id,
+                       Nombre = A.Nombre
+                   };
 
-       
+        }
+
+
     }
 }

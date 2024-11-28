@@ -56,5 +56,13 @@ namespace SERVICIO.Controllers
             clsAula _aula = new clsAula();
             return _aula.llenarTabla();
         }
+        
+        [HttpGet]
+        [Route("listarAulas")]
+        public IQueryable listarAulas()
+        {
+            clsAula _aula = new clsAula();
+            return _aula.listarAulas();
+        }
     }
 }

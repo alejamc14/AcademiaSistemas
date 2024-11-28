@@ -64,5 +64,12 @@ namespace SERVICIO.Controllers
             clsCurso curso = new clsCurso();
             return curso.listarCursosXCategoriaCursos(CategoriaCurso);
         }
+        [HttpGet]
+        [Route("listarCursos")]
+        public IQueryable listarCursos()
+        {
+            clsCurso curso = new clsCurso();
+            return curso.listarCursos();
+        }
     }
 }
