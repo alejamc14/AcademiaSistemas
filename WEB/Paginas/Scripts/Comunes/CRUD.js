@@ -146,6 +146,38 @@ async function EjecutarComandoServicioAuth(Metodo, URLServicio, Objeto) {
         );
     }
 }
+async function EjecutarComandoServicioRptaInicioAuth(Metodo, URLServicio, Objeto) {
+    // Se crea un objeto de la clase cliente con los datos de la interfaz
+    try {
+        let result;
+        let Token = getCookie("token");
+
+        // Realizar la solicitud a la API (para Insertar, Actualizar, Eliminar)
+        const Respuesta = await fetch(URLServicio, {
+            method: Metodo,
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": 'Bearer ' + Token
+            },
+            body: JSON.stringify(Objeto),
+        });
+
+        // Leer la respuesta
+        const Resultado = await Respuesta.json();
+
+        // Mostrar mensaje en el div de mensaje
+        return Resultado;
+    } catch (error) {
+        // Manejo de errores
+        $("#dvMensaje").html(error);
+        await Swal.fire(
+            'Error',
+            'Ocurrió un error en la operación.',
+            'error'
+        );
+    }
+}
 async function EjecutarComandoServicioRpta(Metodo, URLServicio, Objeto) {
     // Se crea un objeto de la clase cliente con los datos de la interfaz
     try {
