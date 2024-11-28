@@ -122,6 +122,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Paginas\Asistencia.html" />
+    <Content Include="Paginas\Aula.html" />
     <Content Include="Paginas\Curso.html" />
     <Content Include="Paginas\Estilos\adminlte.css" />
     <Content Include="Paginas\Estilos\adminlte.min.css" />
@@ -169,6 +170,7 @@
     <Content Include="Paginas\Pago.html" />
     <Content Include="Paginas\Profesor.html" />
     <Content Include="Paginas\Scripts\Asistencia.js" />
+    <Content Include="Paginas\Scripts\Comunes\Aula.js" />
     <Content Include="Paginas\Scripts\Comunes\Comunes.js" />
     <Content Include="Paginas\Scripts\Comunes\CRUD.js" />
     <Content Include="Paginas\Scripts\Curso.js" />

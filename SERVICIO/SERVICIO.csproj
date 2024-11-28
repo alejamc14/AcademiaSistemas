@@ -213,6 +213,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Clases\clsAsistencia.cs" />
+    <Compile Include="Clases\clsAula.cs" />
     <Compile Include="Clases\clsCategoriaCurso.cs" />
     <Compile Include="Clases\clsCurso.cs" />
     <Compile Include="Clases\clsCypher.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Clases\TokenGenerator.cs" />
     <Compile Include="Clases\TokenValidationHandler.cs" />
     <Compile Include="Controllers\AsistenciasController.cs" />
+    <Compile Include="Controllers\AulasController.cs" />
     <Compile Include="Controllers\CategoriaCursosController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\EstudiantesController.cs" />

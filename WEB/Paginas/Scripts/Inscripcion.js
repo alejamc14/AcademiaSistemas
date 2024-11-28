@@ -43,7 +43,7 @@ async function Ejecutar(Metodo, Funcion) {
 
     let URL = "https://localhost:44387/api/Inscripcion/" + Funcion;
     EjecutarComandoServicioAuth(Metodo, URL, inscripcion);
-    if (Metodo !== 'DELETE' || Metdodo !== 'PUT') {
+    if (Metodo !== 'DELETE' || Metodo !== 'PUT') {
         GrabarCurso();
     }
     LlenarTabla();
