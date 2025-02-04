@@ -13,6 +13,7 @@
     <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <!-- SweetAlert2 -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -24,7 +25,7 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">ADMINISTRACIÓN DE CERTIFICADOS</h3>
+                            <h3 class="card-title" id="idTitulo">ADMINISTRACIÓN DE CERTIFICADOS</h3>
                         </div>
                         <form id="frmIncapacidades">
                             <div class="card-body">
@@ -34,6 +35,33 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtDocumento">DOCUMENTO DEL ESTUDIANTE</label>
+                                                    <div class="input-group">
+                                                        <input type="search" class="form-control" id="txtDocumento" placeholder="Documento">
+                                                        <input type="search" class="form-control" id="txtidEstudiante" placeholder="Id EStudiante" hidden>
+                                                        <button type="button" class="btn btn-primary" id="txtBuscar" onclick="ConsultarUsuario()">
+                                                            <i class="bi bi-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtNombre">NOMBRE</label>
+                                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del estudiante" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                   
+                                                    <input type="text" class="form-control" id="txtId" placeholder="Nombre del estudiante" hidden>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--<div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="txtId">CÓDIGO</label>
@@ -47,6 +75,32 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
+                                                <div class="form-group">     
+                                                    <div class="form-group">
+                                                        <label for="txtFecha">FECHA DE CERTIFICACIÓN</label>
+                                                        <input type="date" class="form-control" id="txtFecha" placeholder="Fecha">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>-->
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="cboCurso">ELEGIR CURSO</label>
+                                                    <select id="cboCurso" class="form-control">
+                                                        <option value="0">SELECCIONAR</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtNombreCer">NOMBRE DEL CERTIFICADO</label>
+                                                    <input type="text" class="form-control" id="txtNombreCer" placeholder="Nombre del certificado">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="txtFecha">FECHA DE CERTIFICACIÓN</label>
@@ -56,26 +110,6 @@
                                             </div>
 
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="cboEstudiante">ESTUDIANTE</label>
-                                                    <select id="cboEstudiante" class="form-control">
-                                                        <option value="0">SELECCIONAR</option>
-                                                    </select>
-                                                    <!--<input type="text" class="form-control" id="txtDescripcion" placeholder="Descripción del curso">-->
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="cboCurso">CURSO</label>
-                                                    <select id="cboCurso" class="form-control">
-                                                        <option value="0">SELECCIONAR</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
                                     </div>
                                     <div class="card card-dark">
                                         <div class="card-header">
@@ -83,22 +117,22 @@
                                         </div>
                                         <div class="row">
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <br />
                                                 <button type="button" id="btnInsertar" class="btn-block btn-lg btn-warning" onclick="EjecutarComando('POST', 'Insertar')">INSERTAR</button>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <br />
                                                 <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary" onclick="EjecutarComando('PUT', 'Actualizar')">ACTUALIZAR</button>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <br />
                                                 <button type="button" id="btnEliminar" class="btn-block btn-lg btn-danger" onclick="EjecutarComando('DELETE', 'Eliminar')">ELIMINAR</button>
                                             </div>
-                                            <div class="col-md-3">
+                                            <!--<div class="col-md-3">
                                                 <br />
                                                 <button type="button" id="btnConsultar" class="btn-block btn-lg btn-success" onclick="Consultar()">CONSULTAR</button>
-                                            </div>
+                                            </div>-->
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">

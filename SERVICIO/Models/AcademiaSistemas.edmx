@@ -70,6 +70,7 @@
           <Property Name="IdPago" Type="int" />
           <Property Name="IdCurso" Type="int" />
           <Property Name="ValorUnitario" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Estudiante">
           <Key>
@@ -628,6 +629,7 @@
           <Property Name="ValorUnitario" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Curso" Relationship="Self.FK_Detalle_pago1" FromRole="DetallePago" ToRole="Curso" />
           <NavigationProperty Name="Pago" Relationship="Self.FK_Detalle_pago" FromRole="DetallePago" ToRole="Pago" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Estudiante">
           <Key>
@@ -1193,6 +1195,7 @@
           <EntitySetMapping Name="DetallePagoes">
             <EntityTypeMapping TypeName="AcademiaSistemasModel.DetallePago">
               <MappingFragment StoreEntitySet="DetallePago">
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdPago" ColumnName="IdPago" />
                 <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />

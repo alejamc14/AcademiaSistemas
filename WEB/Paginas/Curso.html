@@ -13,7 +13,6 @@
     <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <!-- SweetAlert2 -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
     <section class="content">
@@ -35,23 +34,10 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="txtId">CÓDIGO</label>
-                                                    <div class="input-group">
-                                                        <input type="search" class="form-control" id="txtId" placeholder="Código curso">
-                                                        <button type="button" class="btn btn-primary" id="txtBuscar" onclick="Consultar()">
-                                                            <i class="bi bi-search"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="cboCategoriaCurso">CATEGORÍA CURSO</label>
-                                                    <select id="cboCategoriaCurso" class="form-control">
-                                                        <option value="0">SELECCIONAR</option>
-                                                    </select>
+                                                    <input type="text" class="form-control" id="txtId" placeholder="Código del curso">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -60,31 +46,41 @@
                                                     <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del curso">
                                                 </div>
                                             </div>
-
-                                            <div class="col-md-2">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="txtHora">DURACIÓN DEL CURSO</label>
-                                                    <input type="number" class="form-control" id="txtHora" placeholder="Duración en horas">
+                                                    <label for="cboCategoriaCurso">CATEGORÍA CURSO</label>
+                                                    <select id="cboCategoriaCurso" class="form-control">
+                                                        <option value="0">SELECCIONAR</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-5">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtDescripcion">DESCRIPCIÓN</label>
-                                                    <input type="text" class="form-control" id="txtDescripcion" placeholder="Descripción del curso">
+                                                    <textarea class="form-control" id="txtDescripcion" rows="4" placeholder="Escribe aquí la descripción del curso" maxlength="50" oninput="updateCharacterCount()"></textarea>
+                                                    <p id="charCount">0 / 50 caracteres</p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtIdProfesor">ID PROFESOR</label>
-                                                    <input type="text" class="form-control" id="txtIdProfesor" placeholder="Id Profesor">
+                                                    <label for="cboProfesor">PROFESOR</label>
+                                                    <select class="form-control" id="cboProfesor">
+                                                        <option value="0">SELECCIONAR</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtPrecio">PRECIO</label>
                                                     <input type="number" class="form-control" id="txtPrecio" placeholder="Precio del Curso">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtHora">HORA</label>
+                                                    <input type="number" class="form-control" id="txtHora" placeholder="Duración total del curso">
                                                 </div>
                                             </div>
                                         </div>
@@ -94,7 +90,6 @@
                                             <h3 class="card-title">PROCESO</h3>
                                         </div>
                                         <div class="row">
-
                                             <div class="col-md-3">
                                                 <br />
                                                 <button type="button" id="btnInsertar" class="btn-block btn-lg btn-warning" onclick="EjecutarComando('POST', 'Insertar')">INSERTAR</button>
@@ -123,9 +118,8 @@
                                                             <th>Curso</th>
                                                             <th>Descripción</th>
                                                             <th>Hora</th>
-                                                            <th>Id Profesor</th>
+                                                            <th>Profesor</th>
                                                             <th>Precio</th>
-
                                                         </tr>
                                                     </thead>
                                                 </table>
@@ -149,7 +143,8 @@
     <script src="../Scripts/jquery.dataTables.min.js"></script>
     <script src="../Scripts/dataTables.bootstrap4.min.js"></script>
     <!--Archivos comunes-->
-
+    <script src="Scripts/Comunes/Comunes.js"></script>
+    <script src="Scripts/Menu.js"></script>
     <script src="Scripts/Comunes/CRUD.js"></script>
     <script src="Scripts/Curso.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

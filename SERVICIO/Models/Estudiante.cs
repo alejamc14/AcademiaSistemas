@@ -36,7 +36,7 @@ namespace SERVICIO.Models
         public string Direccion { get; set; }
         public string Correo { get; set; }
         [JsonIgnore]
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asistencia> Asistencias { get; set; }
         [JsonIgnore]

@@ -9,9 +9,10 @@
 
 namespace SERVICIO.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,10 +27,12 @@ namespace SERVICIO.Models
         public string Salt { get; set; }
         public Nullable<int> IdEstudiante { get; set; }
         public Nullable<int> IdProfesor { get; set; }
-    
-        public virtual Estudiante Estudiante { get; set; }
-        public virtual Profesor Profesor { get; set; }
 
+        [JsonIgnore]
+        public virtual Estudiante Estudiante { get; set; }
+        [JsonIgnore]
+        public virtual Profesor Profesor { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario_Perfil> Usuario_Perfil { get; set; }
     }

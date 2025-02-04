@@ -12,6 +12,17 @@ namespace SERVICIO.Clases
         AcademiaSistemasEntities academiaSistemasEntities1 = new AcademiaSistemasEntities();
 
         public Estudiante estudiante { get; set; }
+
+        public IQueryable ConsultarEstudiante2(string Documento)
+        {
+            return from E in academiaSistemasEntities1.Set<Estudiante>()
+                   where E.Documento == Documento
+                   select new
+                   {
+                       Estudiante = E.Nombre + " " + E.Apellido,
+                       IdEstudiante = E.Id
+                   };
+        }
         public string Insertar()
         {
             try
@@ -52,7 +63,7 @@ namespace SERVICIO.Clases
         {
             try
             {
-                Estudiante _estudiante = Consultar(estudiante.Documento);
+                Estudiante _estudiante = Consultar(estudiante.Id);
                 if (_estudiante != null)
                 {
                     academiaSistemasEntities1.Estudiantes.Remove(_estudiante);
@@ -69,6 +80,11 @@ namespace SERVICIO.Clases
             {
                 return ex.Message;
             }
+        }
+
+        public Estudiante Consultar(int ID)
+        {
+            return academiaSistemasEntities1.Estudiantes.FirstOrDefault(e => e.Id == ID);
         }
 
         public Estudiante Consultar(string Documento)
@@ -103,8 +119,8 @@ namespace SERVICIO.Clases
                    orderby E.Nombre
                    select new
                    {
-                       Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"EditarEstudiante('" + E.Documento + "' , '" + E.Nombre + "', '" + E.Apellido + "', '"+ E.FechaNacimiento +"', '"+ E.Telefono +"', " +
-                       " '"+ E.Direccion +"', '"+ E.Correo +"')\"><i class=\"bi bi-pencil-square\"></i></button>",
+                       Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"Editar('" + E.Id + "' ,'" + E.Documento + "' , '" + E.Nombre + "', '" + E.Apellido + "', '" + E.FechaNacimiento + "', '" + E.Telefono + "', " +
+                       " '" + E.Direccion + "', '" + E.Correo + "')\"><i class=\"bi bi-pencil-square\"></i></button>",
                        Id = E.Id,
                        Documento = E.Documento,
                        Nombre = E.Nombre,

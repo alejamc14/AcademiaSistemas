@@ -91,8 +91,8 @@ namespace SERVICIO.Clases
                        Id = C.Id,
                        Nombre_Certificado = C.NombreCertificado,
                        Fecha = C.FechaCertificacion,
-                       Estudiante = C.IdEstudiante,
-                       Curso= C.IdCurso,
+                       Id_Estudiante = C.IdEstudiante,
+                       Id_Curso= C.IdCurso,
                    };
 
         }

@@ -12,6 +12,36 @@ namespace SERVICIO.Clases
         private AcademiaSistemasEntities dbAcademia = new AcademiaSistemasEntities();
 
         public Curso curso { get; set; }
+        public IQueryable listarCursos()
+        {
+            return from C in dbAcademia.Set<Curso>()
+                   orderby C.Nombre
+                   select new
+                   {
+                       Codigo = C.Id,
+                       Nombre = C.Nombre
+                   };
+
+        }
+
+        public IQueryable ListarCursoXEstudiante(int IdEstudiante)
+        {
+
+            return from C in dbAcademia.Set<Curso>()
+                   join I in dbAcademia.Set<Inscripcion>()
+                   on C.Id equals I.IdCurso
+                   join E in dbAcademia.Set<Estudiante>()
+                   on I.IdEstudiante equals E.Id
+                   where E.Id==IdEstudiante
+                   orderby C.Nombre
+                   select new
+                   {
+                       Codigo = C.Id,
+                       Nombre = C.Nombre
+                   };
+
+
+        }
 
         public IQueryable LlenarCombo()
         {
@@ -110,6 +140,21 @@ namespace SERVICIO.Clases
 
         }
 
-       
+        public IQueryable listarCursosXCategoriaCursos(int CategoriaCurso)
+        {
+            return from C in dbAcademia.Set<Curso>()
+                   join CC in dbAcademia.Set<CategoriaCurso>()
+                   on C.IdCategoria equals CC.IdCategoria
+                   where CC.IdCategoria == CategoriaCurso
+                   orderby C.Nombre, CC.Nombre
+                   select new
+                   {
+                       Codigo = C.Id + "|" + C.Precio,
+                       Nombre = C.Nombre
+                   };
+
+        }
+
+
     }
 }

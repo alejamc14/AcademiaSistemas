@@ -12,8 +12,25 @@ namespace SERVICIO.Controllers
 {
     [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/Cursos")]
+    [Authorize]
     public class CursosController : ApiController
     {
+        [HttpGet]
+        [Route("listarCursos")]
+        public IQueryable listarCursos()
+        {
+            clsCurso curso = new clsCurso();
+            return curso.listarCursos();
+        }
+
+        [HttpGet]
+        [Route("ListarCurso")]
+        public IQueryable ListarCursoXEstudiante(int id)
+        {
+            clsCurso curso = new clsCurso();
+            return curso.ListarCursoXEstudiante(id);
+        }
+
         [HttpGet]
         [Route("LlenarCombo")]
         public IQueryable LlenarCombo()
@@ -66,5 +83,15 @@ namespace SERVICIO.Controllers
             curso.curso = Curso;
             return curso.Eliminar();
         }
+        [HttpGet]
+        [Route("listarCursosXCategoriaCursos")]
+        public IQueryable listarCursosXCategoriaCursos(int CategoriaCurso)
+        {
+            clsCurso curso = new clsCurso();
+            return curso.listarCursosXCategoriaCursos(CategoriaCurso);
+        }
+
+
+
     }
 }

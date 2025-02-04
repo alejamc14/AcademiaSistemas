@@ -9,7 +9,7 @@ namespace SERVICIO.Clases
 {
     public class clsProfesor
     {
-        AcademiaSistemasEntities1 academiaSistemasEntities1 = new AcademiaSistemasEntities1();
+        AcademiaSistemasEntities academiaSistemasEntities1 = new AcademiaSistemasEntities();
         public Profesor profesor { get; set; }
         public string Insertar()
         {

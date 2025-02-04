@@ -1,39 +1,48 @@
 ﻿jQuery(function () {
     $("#dvMenu").load("../Paginas/Menu.html")
 
-    LlenarComboXServicios("https://localhost:44387/api/CategoriaCursos/LlenarCombo", "#cboCategoriaCurso");
+    LlenarComboXServiciosAuth("https://localhost:44387/api/CategoriaCursos/LlenarCombo", "#cboCategoriaCurso");
     LlenarTabla();
+    LlenarProfesor();
 
 });
 
 function LlenarTabla() {
-    LlenarTablaXServicios("https://localhost:44387/api/Cursos/LlenarTabla", "#tblCursos");
+    LlenarTablaXServiciosAuth("https://localhost:44387/api/Cursos/LlenarTabla", "#tblCursos");
+}
+function LlenarProfesor() {
+    LlenarComboXServiciosAuth("https://localhost:44387/api/Profesor/LlenarProfesor", "#cboProfesor");
 }
 
 
 async function EjecutarComando(Metodo, Funcion) {
     const curso = new Curso($("#txtId").val(), $("#txtNombre").val(), $("#txtDescripcion").val(), $("#txtHora").val(),
-        $("#txtPrecio").val(), $("#txtIdProfesor").val(), $("#cboCategoriaCurso").val());
+        $("#txtPrecio").val(), $("#cboProfesor").val(), $("#cboCategoriaCurso").val());
 
     let URL = "https://localhost:44387/api/Cursos/" + Funcion;
-    await EjecutarComandoServicio(Metodo, URL, curso);
+    await EjecutarComandoServicioAuth(Metodo, URL, curso);
     LlenarTabla();
 
 
 }
+function updateCharacterCount() {
+    const descripcion = document.getElementById("txtDescripcion");
+    const charCount = document.getElementById("charCount");
+    charCount.textContent = `${descripcion.value.length} / 50 caracteres`;
+}
 
 async function Consultar() {
     let Codigo = $("#txtId").val();
-    URL = "https://localhost:44387/api/Cursos/ConsultarXCodigo?codigo=" + Codigo;
+    URL = "https://localhost:44387/api/Cursos/ConsultarXCodigo?Codigo=" + Codigo;
     //Invoco el servicio genérico
-    const curso = await ConsultarServicio(URL);
+    const curso = await ConsultarServicioAuth(URL);
     if (curso != null) {
         $("#dvMensaje").html("");
         $("#txtNombre").val(curso.Nombre);
         $("#txtDescripcion").val(curso.Descripcion);
         $("#txtHora").val(curso.Hora);
         $("#txtPrecio").val(curso.Precio);
-        $("#txtIdProfesor").val(curso.IdProfesor);
+        $("#cboProfesor").val(curso.IdProfesor);
         $("#cboCategoriaCurso").val(curso.IdCategoria);
 
     }
@@ -44,7 +53,7 @@ async function Consultar() {
         $("#txtDescripcion").val("");
         $("#txtHora").val("");
         $("#txtPrecio").val("");
-        $("#txtIdProfesor").val("");
+        $("#cboProfesor").val("");
         $("#cboCategoriaCurso").val("");
     }
 }

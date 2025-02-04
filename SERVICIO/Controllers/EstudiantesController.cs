@@ -12,9 +12,17 @@ namespace SERVICIO.Controllers
 {
     [EnableCors(origins: "http://localhost:64868", headers: "*", methods: "*")]
     [RoutePrefix("api/Estudiantes")]
-    //[Authorize]
+    [Authorize]
     public class EstudiantesController : ApiController
     {
+        [HttpGet]
+        [Route("ConsultarXID")]
+        public Estudiante ConsultarXID(int Id)
+        {
+            clsEstudiante _estudiante = new clsEstudiante();
+            return _estudiante.Consultar(Id);
+        }
+
         [HttpPost]
         [Route("Insertar")]
         public string Insertar([FromBody] Estudiante estudiante)
@@ -48,6 +56,14 @@ namespace SERVICIO.Controllers
         {
             clsEstudiante _estudiante = new clsEstudiante();
             return _estudiante.Consultar(Documento);
+        }
+
+        [HttpGet]
+        [Route("ConsultarEstudiante2")]
+        public IQueryable ConsultarEstudiante2(string Documento)
+        {
+            clsEstudiante _estudiante = new clsEstudiante();
+            return _estudiante.ConsultarEstudiante2(Documento);
         }
 
         [HttpGet]
