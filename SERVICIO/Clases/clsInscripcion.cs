@@ -52,14 +52,23 @@ namespace SERVICIO.Clases
         }
         public IQueryable LlenarTabla()
         {
-            return from I in academiaSistemasEntities1.Inscripcions
+            return from I in academiaSistemasEntities1.Set<Inscripcion>()
+                   join E in academiaSistemasEntities1.Set<Estudiante>()
+                   on I.IdEstudiante equals E.Id
+                   join C in academiaSistemasEntities1.Set<Curso>()
+                   on I.IdCurso equals C.Id 
+                   join CC in academiaSistemasEntities1.Set<CategoriaCurso>()
+                   on C.IdCategoria equals CC.IdCategoria
+                   join D in academiaSistemasEntities1.Set<DetallePago>()
+                   on C.Id equals D.Id
                    select new
                    {
-                       Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"EditarInscripcion('"+ I.FechaInscripcion +"')\"><i class=\"bi bi-pencil-square\"></i></button>",
+                       Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"EditarInscripcion('"+ I.Id +"', '"+ I.FechaInscripcion +"', '"+ E.Id +"', '"+ E.Nombre + " " + E.Apellido +"', '"+ CC.IdCategoria +"', '"+ C.Id +"')\"><i class=\"bi bi-pencil-square\"></i></button>",
                        Id = I.Id,
                        FechaInscripcion = I.FechaInscripcion,
-                       IdEstudiante = I.IdEstudiante,
-                       IdCurso = I.IdCurso
+                       NombreEstudiante = E.Nombre + " " + E.Apellido,
+                       NombreCurso = C.Nombre,
+                       Pagar = "<button type=\"button\" class=\"btn btn-primary\" onclick=\"PagoModal()\"><i class=\"bi bi-currency-dollar\"></i> Pagar</button>"
                    };
         }
     }

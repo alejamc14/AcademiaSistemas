@@ -29,7 +29,7 @@ async function Ingresar() {
     const login = new Login($("#txtUsuario").val(), $("#txtClave").val());
 
     try {
-        const Respuesta = await EjecutarComandoServicioRpta("POST", URL, login);
+        const Respuesta = await EjecutarComandoServicioRptaInicioAuth("POST", URL, login);
 
         if (!Respuesta) {
             // Mostrar alerta si no hay respuesta

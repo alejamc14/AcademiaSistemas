@@ -29,7 +29,6 @@ function TerminarCurso() {
     $("#txtNombreEstudiante").val("");
     var table = new DataTable('#tblPago'); 
     table.clear().draw();
-
 }
 async function Eliminar(idPago,cantidad, valorunidad) {
     const detallePago = [new DetallePago(0, $("#txtNumeroPago").val(), $("#txtCodigoCurso").val(), $("#txtValorUnitario").val(), $("#txtCantidad").val())];

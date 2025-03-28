@@ -54,17 +54,19 @@ namespace SERVICIO.Clases
         public IQueryable LlenarTabla()
         {
             return from H in academiaSistemasEntities1.Horarios
-                   //join C in academiaSistemasEntities1.Set<Curso>()
-                   //on H.IdCurso equals C.Id
-                   //join AU in academiaSistemasEntities1.Set<Aula>()
-                   //on H.IdAula equals AU.Id
+                   join C in academiaSistemasEntities1.Set<Curso>()
+                   on H.IdCurso equals C.Id
+                   join AU in academiaSistemasEntities1.Set<Aula>()
+                   on H.IdAula equals AU.Id
                    select new
                    {
-                       Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"EditarHorario('" + H.DiaSemana +"' , '"+ H.HoraInicio +"', '"+ H.HoraFin +"')\"><i class=\"bi bi-pencil-square\"></i></button>",
+                       Editar = "<button type=\"button\" id=\"btnEditar\" class=\"btn btn-success\" onclick=\"EditarHorario('"+ H.Id +"','" + H.DiaSemana +"' , '"+ H.HoraInicio +"', '"+ H.HoraFin +"', '"+ C.Id +"', '"+ AU.Id +"')\"><i class=\"bi bi-pencil-square\"></i></button>",
                        Id = H.Id,
                        DiaSemana = H.DiaSemana,
                        HoraInicio = H.HoraInicio,
-                       HoraFin = H.HoraFin
+                       HoraFin = H.HoraFin,
+                       Curso = C.Nombre,
+                       Aula = AU.Nombre
                    };
         }
     }

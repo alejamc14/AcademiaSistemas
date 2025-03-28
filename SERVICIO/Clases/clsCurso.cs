@@ -112,5 +112,16 @@ namespace SERVICIO.Clases
                    };
 
         }
+        public IQueryable listarCursos()
+        {
+            return from C in academiaSistemasEntities1.Set<Curso>()
+                   orderby C.Nombre
+                   select new
+                   {
+                       Codigo = C.Id,
+                       Nombre = C.Nombre
+                   };
+
+        }
     }
 }
